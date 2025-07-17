@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>kallooppara devitemple - Religious Temple HTML Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logo/spiritual-culture-religion-banner-devi-600nw-2507689893.webp">
+
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor & Plugins CSS (Please remove the comment from below vendor.min.css & plugins.min.css for better website load performance and remove css files from avobe) -->
+
+    <link rel="stylesheet" href="assets/css/vendor/vendor.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.min.css">
+
+</head>
+
+<body>
+
+
+
+
+
+    <!--====================  header area ====================-->
+    <div class="header-area header-area--default">
+
+
+        <!-- Header Bottom Wrap Start -->
+        <header class="header-area header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 d-flex align-items-center">
+                        <div class="header__logo">
+                            <div class="logo">
+                                <a href="index.html"><img
+                                        src="assets/images/logo/spiritual-culture-religion-banner-devi-600nw-2507689893.webp"
+                                        alt="" style="height: 60px; width: auto;">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header-right">
+                            <div class="header__navigation menu-style-three d-none d-lg-block">
+                                <nav class="navigation-menu">
+                                    <ul>
+                                        <li class="has-children has-children--multilevel-submenu active">
+                                            <!-- <a href="#"><span>Home</span></a> -->
+
+                                        </li>
+                                        <li class="has-children">
+                                            <a href="about-us.html"><span>About</span></a>
+                                        </li>
+                                        <li class="has-children">
+                                            <a href="pooja.html"><span>Pooja</span></a>
+                                        </li>
+                                        <li class="has-children has-children--multilevel-submenu">
+                                            <a href="committee.html"><span>Committee</span></a>
+                                            <ul class="submenu">
+                                                <!-- <li><a href="it-services.html"><span>IT Committee</span></a></li> -->
+                                            </ul>
+                                        </li>
+                                        <li class="has-children has-children--multilevel-submenu">
+                                            <a href="gallery.html"><span>Gallery</span></a>
+
+                                        </li>
+                                        <li class="has-children">
+                                            <a href="contact-us.html"><span>Contact</span></a>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+
+                            </div>
+
+                            <div class="header-btn text-end d-none d-sm-block ml-lg-4">
+                                <a class="btn-circle btn-default btn" href="#">Donate</a>
+                            </div>
+
+                            <!-- mobile menu -->
+                            <div class="mobile-navigation-icon d-block d-lg-none" id="mobile-menu-trigger">
+                                <i></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header Bottom Wrap End -->
+
+    </div>
+    <!--====================  End of header area  ====================-->
+
+
+
+    <div class="site-wrapper-reveal">
+
+        <!-- ======== Hero Area Start ========== -->
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            .site-wrapper-reveal {
+                width: 100%;
+            }
+
+            .hero-area {
+                position: relative;
+                height: 100vh;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #imageContainer {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
+
+            .bg-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: center;
+                opacity: 0;
+                transition: opacity 1s ease-in-out;
+            }
+
+            .bg-image.active {
+                opacity: 1;
+            }
+
+            .hero-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 2;
+            }
+
+            .container {
+                position: relative;
+                z-index: 3;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+                width: 100%;
+            }
+
+            .hero-content {
+                text-align: center;
+                width: 100%;
+            }
+
+            #heroText {
+                color: white;
+                position: relative;
+                font-weight: bold;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+                margin-bottom: 20px;
+                line-height: 1.2;
+                transition: all 0.5s ease;
+
+                /* Responsive font sizes */
+                font-size: clamp(1.5rem, 4vw, 3.5rem);
+            }
+
+            #navDots {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 30px;
+                flex-wrap: wrap;
+            }
+
+            .nav-dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.5);
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .nav-dot.active {
+                background: white;
+            }
+
+            /* Additional responsive adjustments */
+            @media (max-width: 768px) {
+                #heroText {
+                    font-size: clamp(1.2rem, 5vw, 2.5rem);
+                    padding: 0 10px;
+                }
+
+                .container {
+                    padding: 0 15px;
+                }
+
+                #navDots {
+                    gap: 8px;
+                    margin-top: 20px;
+                }
+
+                .nav-dot {
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                #heroText {
+                    font-size: clamp(1rem, 6vw, 2rem);
+                    padding: 0 5px;
+                }
+
+                .container {
+                    padding: 0 10px;
+                }
+
+                #navDots {
+                    gap: 6px;
+                    margin-top: 15px;
+                }
+
+                .nav-dot {
+                    width: 8px;
+                    height: 8px;
+                }
+            }
+
+            /* Landscape phone adjustments */
+            @media (max-height: 500px) and (orientation: landscape) {
+                #heroText {
+                    font-size: clamp(1rem, 4vh, 2rem);
+                    margin-bottom: 10px;
+                }
+
+                #navDots {
+                    margin-top: 15px;
+                }
+            }
+        </style>
+        </head>
+
+
+        <div class="site-wrapper-reveal">
+            <!-- ======== Hero Area Start ========== -->
+            <div class="hero-area bg-overlay-black hero-style-01 hindu-hero-bg">
+                <!-- Background Images Container -->
+                <div id="imageContainer">
+                    <!-- Image 1 -->
+                    <div class="bg-image active"
+                        style="background-image: url('./assets/images/banners/bali-.1.2263049.jpg');"
+                        data-text="കർക്കിടക വാവുബലി<br>2025 ജൂലൈ 21"></div>
+
+                    <!-- Image 2 -->
+                    <div class="bg-image"
+                        style="background-image: url('./assets/images/banners/493955959_3127931854028252_1811837646075040974_n.jpg');"
+                        data-text="മകരഭരണി തിരുവുത്സവം<br>2025 മെയ് 21"></div>
+
+                    <!-- Image 3 -->
+                    <div class="bg-image"
+                        style="background-image: url('./assets/images/banners/494056787_3130691407085630_6473826964900846185_n.jpg');"
+                        data-text="കുംഭ ഭരണി<br>2026 മാർച്ച് 23"></div>
+
+                    <!-- Image 4 -->
+                    <div class="bg-image" style="background-image: url('./assets/images/banners/ramayana.jpg');"
+                        data-text="രാമായണ മാസാരംഭം<br>2025 ജൂലൈ 17"></div>
+                </div>
+
+                <!-- Overlay -->
+                <div class="hero-overlay"></div>
+
+                <!-- Content Container -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="hero-content">
+                                <h1 id="heroText">കർക്കിടക വാവുബലി<br>2025 ജൂലൈ 21</h1>
+
+                                <!-- Navigation Dots -->
+                                <div id="navDots"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                (function () {
+                    let currentIndex = 0;
+                    const images = document.querySelectorAll('.bg-image');
+                    const heroText = document.getElementById('heroText');
+                    const navDots = document.getElementById('navDots');
+
+                    // Create navigation dots
+                    images.forEach((_, index) => {
+                        const dot = document.createElement('div');
+                        dot.className = `nav-dot ${index === 0 ? 'active' : ''}`;
+                        dot.addEventListener('click', () => goToSlide(index));
+                        navDots.appendChild(dot);
+                    });
+
+                    const dots = navDots.querySelectorAll('.nav-dot');
+
+                    function goToSlide(index) {
+                        // Hide current image
+                        images[currentIndex].classList.remove('active');
+                        dots[currentIndex].classList.remove('active');
+
+                        // Show new image
+                        currentIndex = index;
+                        images[currentIndex].classList.add('active');
+                        dots[currentIndex].classList.add('active');
+
+                        // Update text
+                        heroText.innerHTML = images[currentIndex].getAttribute('data-text');
+                    }
+
+                    function nextSlide() {
+                        const nextIndex = (currentIndex + 1) % images.length;
+                        goToSlide(nextIndex);
+                    }
+
+                    // Auto-cycle every 4 seconds
+                    let autoSlideInterval = setInterval(nextSlide, 4000);
+
+                    // Pause on hover
+                    const heroArea = document.querySelector('.hero-area');
+
+                    heroArea.addEventListener('mouseenter', () => {
+                        clearInterval(autoSlideInterval);
+                    });
+
+                    heroArea.addEventListener('mouseleave', () => {
+                        autoSlideInterval = setInterval(nextSlide, 4000);
+                    });
+
+                    // Pause on touch devices when touching
+                    heroArea.addEventListener('touchstart', () => {
+                        clearInterval(autoSlideInterval);
+                    });
+
+                    heroArea.addEventListener('touchend', () => {
+                        autoSlideInterval = setInterval(nextSlide, 4000);
+                    });
+                })();
+            </script>
+        </div>
+
+        <!-- ======== Hero Area End ========== -->
+
+        <!-- ======== Feature Area Start ========== -->
+        <div class="feature-area section-space--pt_90" style="padding-top: 90px;">
+            <div class="container">
+                <div class="row"
+                    style="border: 2px solid #e8e8e8; border-radius: 10px; padding: 30px; background: rgb(255, 235, 225); box-shadow: 0 20px 30px oklch(43.838% 0.25905 265.04 / 0.08);">
+                    <!-- Darshan Timings -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-feature-wrap text-center" style="padding: 20px;">
+                            <div class="feature-icon" style="margin-bottom: 15px;">
+                                <img src="assets/images/icons/hindu-01.png" alt=""
+                                    style="width: 70px; height: 70px; object-fit: contain;">
+                            </div>
+                            <div class="feature-content">
+                                <h5 class="feature-title">Darshan Timings</h5>
+                                <p>from 5:30 AM to 12:00 PM and 5:00 PM to 8:30 PM.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Daily Pooja -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-feature-wrap text-center" style="padding: 20px;">
+                            <div class="feature-icon" style="margin-bottom: 15px;">
+                                <img src="assets/images/icons/hindu-02.png" alt=""
+                                    style="width: 70px; height: 70px; object-fit: contain;">
+                            </div>
+                            <div class="feature-content">
+                                <h5 class="feature-title">Daily Pooja</h5>
+                                <p>Usha Pooja, Pantheeradi Pooja, Uccha Pooja, and Athazha Pooja performed daily with
+                                    traditional Kerala temple rituals and chanting.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Festivals -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-feature-wrap text-center" style="padding: 20px;">
+                            <div class="feature-icon" style="margin-bottom: 15px;">
+                                <img src="assets/images/icons/elephant.png" alt=""
+                                    style="width: 70px; height: 70px; object-fit: contain;">
+                            </div>
+                            <div class="feature-content">
+                                <h5 class="feature-title">Festivals</h5>
+                                <p>Celebrate Navaratri, Devi Ashtami, and traditional Kerala festivals with classical
+                                    performances, processions, and cultural programs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-feature-wrap text-center" style="padding: 20px;">
+                            <div class="feature-icon" style="margin-bottom: 15px;">
+                                <img src="assets/images/icons/hindu-03.png" alt=""
+                                    style="width: 70px; height: 70px; object-fit: contain;">
+                            </div>
+                            <div class="feature-content">
+                                <h5 class="feature-title">Special Pooja</h5>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======== Feature Area End ========== -->
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #f5f7fa;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .vc_row {
+                display: flex;
+                flex-wrap: wrap;
+                margin: 0 -15px;
+            }
+
+            .vc_column_container {
+                padding: 0 15px;
+                flex: 1;
+            }
+
+            .vc_col-sm-5 {
+                flex: 0 0 41.66667%;
+            }
+
+            .vc_col-sm-12 {
+                flex: 0 0 100%;
+            }
+
+            .vc_col-lg-7 {
+                flex: 0 0 58.33333%;
+            }
+
+            .vc_empty_space {
+                margin-bottom: 32px;
+            }
+
+            .sc_announcements_title {
+                color: #2c3e50;
+                font-size: 2rem;
+                font-weight: 700;
+                margin-bottom: 30px;
+                position: relative;
+                text-align: left;
+            }
+
+            .sc_announcements_title::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 60px;
+                height: 4px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border-radius: 2px;
+            }
+
+            .announcement-card {
+                background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+                border: 1px solid #e1e8f0;
+                border-radius: 15px;
+                padding: 25px;
+                margin-bottom: 20px;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .announcement-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+            }
+
+            .announcement-card.priority-high {
+                border-left: 5px solid #ff6b6b;
+            }
+
+            .announcement-card.priority-info {
+                border-left: 5px solid #45b7d1;
+            }
+
+            .announcement-card.priority-normal {
+                border-left: 5px solid #4ecdc4;
+            }
+
+            .announcement-priority {
+                display: inline-block;
+                padding: 5px 12px;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                font-weight: 600;
+                margin-bottom: 15px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                color: white;
+            }
+
+            .priority-high .announcement-priority {
+                background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            }
+
+            .priority-info .announcement-priority {
+                background: linear-gradient(135deg, #45b7d1 0%, #96c93d 100%);
+            }
+
+            .priority-normal .announcement-priority {
+                background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+            }
+
+            .announcement-text {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                color: #2c3e50;
+                margin-bottom: 15px;
+            }
+
+            .announcement-meta {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 20px;
+                padding-top: 15px;
+                border-top: 1px solid #e1e8f0;
+            }
+
+            .announcement-date {
+                color: #7f8c8d;
+                font-size: 0.9rem;
+            }
+
+            .announcement-icon {
+                width: 24px;
+                height: 24px;
+                opacity: 0.6;
+            }
+
+            @media (max-width: 768px) {
+
+                .vc_col-sm-5,
+                .vc_col-lg-7 {
+                    flex: 0 0 100%;
+                }
+
+                .sc_announcements_title {
+                    font-size: 1.5rem;
+                }
+
+                .announcement-card {
+                    padding: 20px;
+                }
+            }
+        </style>
+        </head>
+
+        <body>
+            <div class="container">
+                <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                    <div class="wpb_column vc_column_container vc_col-sm-5 sc_layouts_column_icons_position_left">
+                        <div class="vc_column-inner">
+                            <div class="wpb_wrapper"></div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-12 sc_layouts_column_icons_position_left">
+                        <div class="vc_column-inner">
+                            <div class="wpb_wrapper">
+                                <div class="vc_empty_space" style="height: 5rem">
+                                    <span class="vc_empty_space_inner"></span>
+                                </div>
+
+                                <div id="sc_announcements_324090019"
+                                    class="sc_announcements color_style_default sc_announcements_default">
+                                    <h3 class="sc_announcements_title sc_align_left _style_default _tag">
+                                        ഔദ്യോഗിക അറിയിപ്പുകൾ
+                                    </h3>
+
+                                    <div class="sc_announcements_content">
+                                        <!-- High Priority Announcement -->
+                                        <div class="announcement-card priority-high">
+                                            <div class="announcement-priority">
+                                                പ്രധാനപ്പെട്ട അറിയിപ്പ്
+                                            </div>
+                                            <div class="announcement-text">
+                                                ദർശനത്തിനുള്ള അവസാന സമയം രാത്രി 7:45 ആണു. ദയവായി സമയ പരിധി പാലിക്കുക.
+                                            </div>
+                                            <div class="announcement-meta">
+                                                <span class="announcement-date">Updated today</span>
+                                                <svg class="announcement-icon" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+
+                                        <!-- Info Announcement -->
+                                        <div class="announcement-card priority-info">
+                                            <div class="announcement-priority">
+                                                വിവരമാണ്
+                                            </div>
+                                            <div class="announcement-text">
+                                                പുതിയ ദർശന സമയക്രമം അടുത്ത ആഴ്ച പ്രാബല്യത്തിൽ വരും. കൂടുതൽ വിവരങ്ങൾക്ക്
+                                                ഓഫീസിൽ
+                                                ബന്ധപ്പെടുക.
+                                            </div>
+                                            <div class="announcement-meta">
+                                                <span class="announcement-date">2 days ago</span>
+                                                <svg class="announcement-icon" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+
+                                        <!-- Normal Announcement -->
+                                        <div class="announcement-card priority-normal">
+                                            <div class="announcement-priority">
+                                                സാധാരണ അറിയിപ്പ്
+                                            </div>
+                                            <div class="announcement-text">
+                                                വിശേഷ പ്രാർത്ഥനാ സമയം എല്ലാ വെള്ളിയാഴ്ചകളിലും വൈകുന്നേരം 6:00 മുതൽ 7:00
+                                                വരെ.
+                                                എല്ലാവരും സ്വാഗതം.
+                                            </div>
+                                            <div class="announcement-meta">
+                                                <span class="announcement-date">1 week ago</span>
+                                                <svg class="announcement-icon" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="vc_empty_space vc_custom_1517925671983 height_large" style="height: 32px">
+                                    <span class="vc_empty_space_inner"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+
+        <!-- ======== Tai About Area Start ========== -->
+        <div class="tai-about-area section-space--ptb_120">
+            <div class="container-fluid pl-0 pr-0">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-lg-6">
+                        <div class="about-tai-image">
+                            <img src="assets/images/banners/amma.jpg" class="img-fluid" alt="Tai Images">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-tai-content col-06__right tablet-mt__30 small-mt__30">
+                            <div class="section-title-wrap">
+                                <h3 class="section-title left-style">അമ്മേ ശരണം</h3>
+                            </div>
+                            <p>ശ്രീ ചക്രത്താൽ പ്രതിഷ്ഠിച്ചിട്ടുള്ള അപൂർവ ക്ഷേത്രങ്ങളിൽ ഒന്നാണ് കല്ലൂപ്പാറ ഭഗവതി
+                                ക്ഷേത്രം. ക്ഷേത്രത്തിലെ മൂലബിംബം,
+                                താന്ത്രികവും ആധ്യാത്മികവുമായ മഹത്ത്വം വഹിക്കുന്ന ശ്രീചക്രം ആണെന്ന് വിശ്വാസം. ഭദ്രകാളിയായ
+                                അമ്മ, ദാരുക നിഗ്രഹത്തിനു
+                                ശേഷമാണ് ഇവിടെ സർവ അഭീഷ്ട വർദായിനിയായി കുടികൊള്ളുന്നത്. ഭയങ്ങൾ നീക്കിയും ആശംസകൾ
+                                നിറവേറ്റിയും ഭക്തരുടെ ഹൃദയങ്ങളിൽ അമ്മ
+                                നിത്യവാസം ചെയ്യുന്നു.
+                            </p>
+                            <p>മകര മാസത്തിലെ ഭരണി നാള് ആണ് ദേവിയുടെ തിരുനാൾ.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ======== Tai About Area End ========== -->
+
+        <!-- ======== Service Area Start ========== -->
+        <div class="service-area section-space--pb_120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title-wrap text-center">
+                            <h3 class="section-title center-style" style="font-weight: bold;">ഉത്സവങ്ങൾ</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <!-- Single Service Start -->
+                        <div class="single-service-wrap mt-30">
+                            <div class="service-image">
+                                <a href="#">
+                                    <img src="assets/images/services/makarabharani.jpg" class="img-fluid"
+                                        alt="Service image" style="width:100%; height:250px; object-fit:cover;">
+                                </a>
+                            </div>
+                            <div class="service-content">
+                                <h4 class="service-title">മകര ഭരണി തിരുവുത്സവം</h4>
+                                <p>മകര മാസത്തിലെ ഭരണി നാൾ ദേവിയുടെ തിരുനാളായും പ്രധാന ഉത്സവദിനമായും ആചരിക്കുന്നു. ഈ ദിനം
+                                    ഭദ്രകാളി ദേവിയുടെ ഉഗ്രശക്തിയെ സ്മരിക്കുന്നതും, ഭക്തർക്ക് ഐശ്വര്യവും അനുഗ്രഹവും
+                                    സമ്മാനിക്കുന്നതുമായ പരിശുദ്ധ ദിവസമാണ്.</p>
+                            </div>
+                        </div>
+                        <!--// Single Service End -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <!-- Single Service Start -->
+                        <div class="single-service-wrap mt-30">
+                            <div class="service-image">
+                                <a href="#">
+                                    <img src="assets/images/services/kumbabharani.jpg" class="img-fluid"
+                                        alt="Service image" style="width:100%; height:250px; object-fit:cover;">
+                                </a>
+                            </div>
+                            <div class="service-content">
+                                <h4 class="service-title">കുംഭ ഭരണി തിരുവുത്സവം</h4>
+                                <p>കുംഭ മാസത്തിലെ ഭരണി നാൾ, ഭദ്രകാളിദേവിയുടെ ആവിഷ്കാര ശക്തിയെയും,
+                                    ക്ഷേത്രതന്ത്രങ്ങളിലൂടെയുള്ള
+                                    ഉഗ്രതത്വത്തെയും സ്മരിക്കുന്ന വിശിഷ്ടദിനമാണ്. ഈ ദിവസം ദേവിക്ക് പ്രത്യേക പൂജകളും
+                                    സമർപ്പണങ്ങളും
+                                    നടന്നു കൊണ്ടിരിക്കുന്നു.</p>
+                            </div>
+                        </div>
+                        <!--// Single Service End -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <!-- Single Service Start -->
+                        <div class="single-service-wrap mt-30">
+                            <div class="service-image">
+                                <a href="#">
+                                    <img src="assets/images/services/meenabharani.jpg" class="img-fluid"
+                                        alt="Service image" style="width:100%; height:250px; object-fit:cover;">
+                                </a>
+                            </div>
+                            <div class="service-content">
+                                <h4 class="service-title">മീനഭരണി തിരുവുത്സവം</h4>
+                                <p>മീനമാസത്തിലെ ഭരണി നാൾ, ക്ഷേത്രത്തിൽ വളരെ ഭക്തിപൂര്വമായും ആചാരപരമായും ആചരിക്കുന്ന
+                                    തിരുനാൾ
+                                    ദിനമാണ്. ദേവിയുടെ പ്രതാപവും കരുണയും ഒരുസമയം അനുഭവപ്പെടുന്ന ഉത്സവദിനം.</p>
+                            </div>
+                        </div>
+                        <!--// Single Service End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======== Service Area End ========== -->
+
+
+        <!-- ======== Donation Area Start ========== -->
+        <div class="donation-area section-space--pb_120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title-wrap text-center">
+                            <h3 class="section-title center-style" style="font-weight:bold;">വിശേഷ ദിവസങ്ങൾ</h3>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <!-- Single Donation Wrap Start -->
+                        <div class="single-donation-wrap row align-items-center">
+                            <div class="col-lg-5">
+                                <div class="donation-image">
+                                    <img src="assets/images/donation/annadanam-1.jpg" class="img-fluid"
+                                        alt="Donation Image">
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="donation-content ml-lg-5">
+                                    <div class="content-title">
+                                        <h4 class="mb-15">അന്നദാനം മഹാദാനം.</h4>
+                                        <p>ക്ഷേത്രത്തിൽ എല്ലാ വെള്ളിയാഴ്ചയും അന്നദാനം നടത്തപ്പെടുന്നു.
+                                            അമ്മ നൽകിയതിന്റെ ഒരു പങ്ക് സമർപ്പിച്ച്, ഈ പവിത്ര സമർപ്പണത്തിൽ നിങ്ങൾക്കും
+                                            പങ്കാളിയാകാം.</p>
+                                    </div>
+
+                                    <div class="progress-wrap-hindu">
+                                        <div class="row">
+
+                                            <div class="col-lg-4">
+                                                <div class="donate-btn text-lg-right">
+                                                    <a href="#" class="btn donate-btn">Donate Now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--// Single Donation Wrap End -->
+                    </div>
+
+                    <div class="col-lg-12">
+                        <!-- Single Donation Wrap Start -->
+                        <div class="single-donation-wrap row align-items-center">
+                            <div class="col-lg-5">
+                                <div class="donation-image">
+                                    <img src="assets/images/donation/narangavilak.jpg" class="img-fluid"
+                                        alt="Donation Image">
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="donation-content ml-lg-5">
+                                    <div class="content-title">
+                                        <h4 class="mb-15">നാരങ്ങ വിളക്ക്</h4>
+                                        <p>ക്ഷേത്രത്തിൽ ഓരോ വെള്ളിയാഴ്‌ചയും ഉച്ചക്ക് 12:30ന് നാരങ്ങ വിളക്ക്
+                                            നടത്തപ്പെടുന്നു.
+                                            ഭക്തിസാന്ദ്രമായ ദീപാരാധനയുടെ ഭാഗമായി, ദേവിയുടെ കൃപയും അനുഗ്രഹവും നേടാൻ ഈ
+                                            വിളക്ക് ദാനം വിശേഷമായി ആചരിക്കപ്പെടുന്നു.
+                                            നിങ്ങളും ഈ ദിവ്യസേവനത്തിൽ പങ്കുചേർന്നു, മനസ്സിന്റെ പ്രസാദവും ആത്മശാന്തിയും
+                                            നേടൂ.</p>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--// Single Donation Wrap End -->
+                    </div>
+
+                    <div class="col-lg-12">
+                        <!-- Single Donation Wrap Start -->
+                        <div class="single-donation-wrap row align-items-center">
+                            <div class="col-lg-5">
+                                <div class="donation-image">
+                                    <img src="assets/images/banners/amma.jpg" class="img-fluid" alt="Donation Image">
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="donation-content ml-lg-5">
+                                    <div class="content-title">
+                                        <h4 class="mb-15">അമ്മയുടെ തങ്ക അങ്കി അലങ്കാരം</h4>
+                                        <p>പ്രതി വെള്ളിയാഴ്ചയും ഞായറാഴ്ചയും, അമ്മ തങ്ക വിഗ്രഹമായി പ്രതിഷ്ഠയിലിരിക്കും.
+                                            ഈ വിശേഷദിനങ്ങളിൽ തങ്ക അങ്കിയിലൂടെയുള്ള ഭദ്രകാളിദേവിയുടെ അലങ്കാരം ഭക്തർക്ക്
+                                            അപൂർവമായ ദർശനമായാണ് അനുഭവപ്പെടുന്നത്.</p>
+                                    </div>
+
+                                    <div class="progress-wrap-hindu">
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="progress-bar--one">
+                                                    <!-- Start Single Progress Charts -->
+
+                                                    <!-- End Single Progress Charts -->
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-lg-4">
+                                                <div class="donate-btn text-lg-right">
+                                                    <a href="#" class="btn donate-btn">Donate Now</a>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--// Single Donation Wrap End -->
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- ======== Donation Area End ========== -->
+
+        <!-- ======== Hindu Video Area Start ========== -->
+        <div class="hindu-video-area">
+            <div class="container-fluid container-fluid--cp-100">
+                <div class="hindu-video-bg hindu-video-section-pb bg-overlay-black border-radius-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="video-content-wrap text-center position-relative">
+                                <div class="icon">
+                                    <a href="https://youtu.be/dyeO9f02yDg?si=I3kvqOvRQ7pr_JPl"
+                                        class="video-link popup-youtube">
+                                        <img src="assets/images/icons/play-circle.png" alt="Video Icon">
+                                    </a>
+                                </div>
+                                <div class="content section-space--mt_80">
+                                    <h3 class="text-white mb-10">കല്ലൂപ്പാറ പടയണി</h3>
+                                    <p class="text-white">ഭദ്രകാളിയുടെ ഉഗ്രശക്തിയും കലാപാരമ്പര്യത്തിന്റെ അതുല്യതയും
+                                        ചേർന്ന
+                                        വിസ്മയപൂരിതമായ ദർശനം</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========  Hindu Video Area End ========== -->
+
+        <!-- ======== Others Activities Area Start ========== -->
+        <div class="others-activities-area section-space--ptb_120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title-wrap text-center">
+                            <h3 class="section-title center-style">ഇതര ചടങ്ങുകൾ</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Single Activities Start -->
+                        <div class="single-activities-wrap">
+                            <a href="#" class="activities-imgaes">
+                                <img src="assets/images/activities/Kalamezhuthum_pattu.jpg" class="img-fluid" alt="">
+                            </a>
+                            <div class="activities-content text-center">
+                                <div class="widget-metadata"><span>വൃശ്ചികം</span></div>
+                                <a href="#">
+                                    <h4 class="activities-title">കളമെഴുത്തും പാട്ടും</h4>
+                                </a>
+                                <p>നിലത്ത് നിറപ്പൂക്കളുപയോഗിച്ച് ദേവതയുടെ രൂപം വരച്ചുനിറയ്ക്കുന്ന ആചാരം. ഇത് ഭക്തിപൂർവം,
+                                    ശ്രദ്ധയോടെ, മന്ത്രജപങ്ങളോടൊപ്പം
+                                    ചെയ്യപ്പെടുന്നു.</p>
+                            </div>
+                        </div>
+                        <!--// Single Activities End -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Single Activities Start -->
+                        <div class="single-activities-wrap">
+                            <a href="#" class="activities-imgaes">
+                                <img src="assets/images/activities/ramayana-masam-2.jpg" class="img-fluid" alt="">
+                            </a>
+                            <div class="activities-content text-center">
+                                <div class="widget-metadata"><span>കർക്കിടകം</span></div>
+                                <a href="#">
+                                    <h4 class="activities-title">രാമായണ പാരായണം</h4>
+                                </a>
+                                <p>കർക്കിടകമാസം മുഴുവനും, ക്ഷേത്രത്തിൽ പ്രതിദിനം രാമായണ പാരായണം ഭക്തിപൂർവം
+                                    നടത്തപ്പെടുന്നു.</p>
+                            </div>
+                        </div>
+                        <!--// Single Activities End -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Single Activities Start -->
+                        <div class="single-activities-wrap">
+                            <a href="#" class="activities-imgaes">
+                                <img src="assets/images/activities/nav+koiu.jpg" class="img-fluid" alt="">
+                            </a>
+                            <div class="activities-content text-center">
+                                <div class="widget-metadata"><span>കന്നി</span></div>
+                                <a href="#">
+                                    <h4 class="activities-title">നവരാത്രി</h4>
+                                </a>
+                                <p>നവരാത്രി പൂജ, ഭഗവതിയുടെ ഒൻപത് രൂപങ്ങൾക്കായി ഒൻപത് ദിവസത്തെ വിശേഷാരാധനയാണ്.</p>
+                            </div>
+                        </div>
+                        <!--// Single Activities End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ======== Others Activities Area End ========== -->
+
+
+
+
+    </div>
+
+
+
+    <!--========== Footer Area Start ==========-->
+    <footer class="footer-area bg-footer">
+        <div class="footer-top section-space--ptb_80 section-pb text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="widget-footer mt-30">
+                            <div class="footer-title">
+                                <h6>Address</h6>
+                            </div>
+                            <div class="footer-contents">
+                                <ul>
+                                    <li> Kallooppara Devi Temple</li>
+                                    <li>Kallooppara P.O,</li>
+                                    <li>Thiruvalla – Mallappally Road,</li>
+                                    <li>Pathanamthitta District,</li>
+                                    <li>Kerala – 689583,</li>
+                                    <li>India</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6">
+                        <div class="widget-footer mt-30">
+                            <div class="footer-title">
+                                <h6>Related Links</h6>
+                            </div>
+                            <div class="footer-contents">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about-us.html">About</a></li>
+                                    <li><a href="pooja.html">Pooja</a></li>
+                                    <!-- <li><a href="committee.html">Service</a></li> -->
+                                    <li><a href="gallery.html">Gallery</a></li>
+                                    <li><a href="contact-us.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="widget-footer mt-30">
+                            <div class="footer-title">
+                                <h6>Information</h6>
+                            </div>
+                            <div class="footer-contents">
+                                <ul>
+                                    <li>Morning: 5:30 am to 11:30 am</li>
+                                    <li>Evening: 5:00 pm to 7:30 pm</li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="widget-footer mt-30">
+                            <div class="footer-title">
+                                <h6>Related Links</h6>
+                            </div>
+                            <div class="footer-logo mb-15">
+                                <a href="index.html"><img
+                                        src="assets/images/logo/spiritual-culture-religion-banner-devi-600nw-2507689893.webp"
+                                        alt="" style="height: 60px; width: auto;"></a>
+                            </div>
+                            <div class="footer-contents">
+
+
+                                <ul class="footer-social-share mt-20">
+                                    <li><a href="#"><i class="flaticon-facebook"></i></a></li>
+                                    <li><a href="#"><i class="flaticon-twitter"></i></a></li>
+                                    <li><a href="#"><i class="flaticon-pinterest-social-logo"></i></a></li>
+                                    <li><a href="#"><i class="flaticon-youtube"></i></a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--==========// Footer Area End ==========-->
+
+    <!--====================  scroll top ====================-->
+    <a href="#" class="scroll-top" id="scroll-top">
+        <i class="arrow-top flaticon-up-arrow"></i>
+        <i class="arrow-bottom flaticon-up-arrow"></i>
+    </a>
+    <!--====================  End of scroll top  ====================-->
+
+    <!--====================  mobile menu overlay ====================-->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <div class="mobile-menu-overlay__inner">
+            <div class="mobile-menu-overlay__header">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 col-8">
+                            <!-- logo -->
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="assets/images/logo/spiritual-culture-religion-banner-devi-600nw-2507689893.webp"
+                                        style="height: 60px; width: auto;" class="img-fluid" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-4">
+                            <!-- mobile menu content -->
+                            <div class="mobile-menu-content text-end">
+                                <span class="mobile-navigation-close-icon" id="mobile-menu-close-trigger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu-overlay__body">
+                <nav class="offcanvas-navigation">
+                    <ul>
+                        <li class="has-children">
+                            <a href="index.html">Home</a>
+
+                        </li>
+                        <li class="has-children">
+                            <a href="about-us.html">about</a>
+                        </li>
+                        <li class="has-children">
+                            <a href="pooja.html">Pooja</a>
+                        </li>
+                        <li class="has-children">
+                            <a href="committee.html">Committee</a>
+                        </li>
+                        <li class="has-children">
+                            <a href="gallery.html">Gallery</a>
+                        </li>
+                        <!--   <li class="has-children">
+                            <a href="javascript:void(0)">Pages</a>
+                            <ul class="sub-menu">
+                                <li><a href="gallery.html"><span>Gallery</span></a></li>
+                                <li><a href="mission-and-vision.html"><span>Mission & Vision</span></a></li>
+                                <li><a href="causes-details.html"><span>Causes Details</span></a></li>
+                                <li><a href="events-details.html"><span>Events Details</span></a></li>
+                            </ul>
+                        </li> -->
+                        <li class="has-children">
+                            <a href="contact-us.html">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!--====================  End of mobile menu overlay  ====================-->
+
+
+
+
+    <!-- JS
+    ============================================ -->
+
+    <!-- Modernizer JS -->
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <!-- jquery JS -->
+    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+
+    <!-- Plugins JS (Please remove the comment from below plugins.min.js for better website load performance and remove plugin js files from avobe) -->
+
+
+    <script src="assets/js/plugins/plugins.min.js"></script>
+
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
+
+</body>
+
+
+
+</html>
