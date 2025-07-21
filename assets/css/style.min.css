@@ -3386,7 +3386,7 @@ input[type="checkbox"] {
 .progress-wrap-hindu .donate-btn .btn:hover {
   background: #f2b263;
 }
-.progress_sold_causes {
+.progress_sold_gallery {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3394,20 +3394,20 @@ input[type="checkbox"] {
   margin-top: 20px;
   font-weight: 500;
 }
-.progress_sold_causes p {
+.progress_sold_gallery p {
   margin-bottom: 0;
 }
-.single-causes-wrap .event-image img {
+.single-gallery-wrap .event-image img {
   width: 100%;
 }
-.causes-cont {
+.gallery-cont {
   padding: 30px 20px;
   background: #fafafa;
   border-bottom: 1px solid #e8e8e8;
   border-left: 1px solid #e8e8e8;
   border-right: 1px solid #e8e8e8;
 }
-.causes-cont .progress-bar--two .progress-charts .progress {
+.gallery-cont .progress-bar--two .progress-charts .progress {
   background-color: rgba(0, 0, 0, 0);
   border-color: 2px solid #d5fcfb;
 }
