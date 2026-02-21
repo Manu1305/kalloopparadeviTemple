@@ -384,6 +384,140 @@
 
         <!-- ======== Hero Area End ========== -->
 
+        <!-- ======== Live/Video Section ========== -->
+        <div id="live-video-section"
+            style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 50px 0;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+
+                        <!-- Section Title -->
+                        <div class="text-center mb-4">
+                            <h3 style="color: white; font-weight: bold; font-size: 28px;">📺 തത്സമയ ദർശനം & വീഡിയോ ഗാലറി
+                            </h3>
+                            <p style="color: rgba(255,255,255,0.7);">ക്ഷേത്ര ചടങ്ങുകൾ തത്സമയം കാണുക അല്ലെങ്കിൽ മുൻ
+                                വീഡിയോകൾ കാണുക</p>
+                        </div>
+
+                        <!-- Check Live Button (Always Visible) -->
+                        <div style="display: flex; justify-content: center; margin-bottom: 25px;">
+                            <button id="check-live-btn" onclick="checkForLive()"
+                                style="background: linear-gradient(135deg, #ff6b6b 0%, #ff0000 100%); color: white; border: none; padding: 16px 35px; border-radius: 30px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; font-size: 16px; display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 20px;">🔴</span> ലൈവ് പരിശോധിക്കുക
+                            </button>
+                        </div>
+
+                        <!-- Live Stream Box (Hidden by default, shows on button click) -->
+                        <div id="live-stream-box"
+                            style="display: none; background: rgba(255,255,255,0.05); border-radius: 15px; padding: 25px; border: 2px solid #ff0000; margin-bottom: 20px;">
+                            <div class="text-center mb-3">
+                                <button onclick="closeLiveBox()"
+                                    style="float: right; background: rgba(255,255,255,0.1); border: none; color: white; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; font-size: 18px;">✕</button>
+                                <span
+                                    style="display: inline-flex; align-items: center; background: #ff0000; color: white; padding: 10px 25px; border-radius: 25px; font-weight: bold; font-size: 16px; animation: livePulse 2s infinite;">
+                                    <span
+                                        style="width: 12px; height: 12px; background: white; border-radius: 50%; margin-right: 10px; animation: blink 1s infinite;"></span>
+                                    🔴 തത്സമയ സംപ്രേക്ഷണം
+                                </span>
+                            </div>
+
+                            <!-- Live iframe -->
+                            <div class="video-wrapper"
+                                style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; margin-top: 15px;">
+                                <iframe id="home-live-iframe"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                                    src="" title="തത്സമയ ദർശനം"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+
+                            <!-- Message below video -->
+                            <div
+                                style="text-align: center; margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                                <p style="color: rgba(255,255,255,0.8); margin-bottom: 15px; font-size: 14px;">
+                                    ലൈവ് ഇല്ലെങ്കിൽ "This video is unavailable" എന്ന് കാണിക്കും
+                                </p>
+                                <a href="gallery.html"
+                                    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;">
+                                    🎬 വീഡിയോ ഗാലറി കാണുക
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            @keyframes livePulse {
+
+                0%,
+                100% {
+                    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+                }
+
+                50% {
+                    box-shadow: 0 0 0 15px rgba(255, 0, 0, 0);
+                }
+            }
+
+            @keyframes blink {
+
+                0%,
+                100% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.3;
+                }
+            }
+
+            #check-live-btn:hover {
+                transform: scale(1.05);
+                box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+            }
+
+            #live-video-section a:hover {
+                transform: scale(1.05);
+                box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            }
+        </style>
+
+        <script>
+            // Live Stream - Simple Version
+            const channelId = 'UCH4T7r80lexo1i2v7tQO4NQ';
+            const liveStreamBox = document.getElementById('live-stream-box');
+            const liveIframe = document.getElementById('home-live-iframe');
+
+            function checkForLive() {
+                const btn = document.getElementById('check-live-btn');
+                btn.innerHTML = '<span style="font-size: 20px;">⏳</span> പരിശോധിക്കുന്നു...';
+                btn.disabled = true;
+
+                // Show live stream box and load iframe with minimal YouTube branding
+                liveStreamBox.style.display = 'block';
+                liveIframe.src = `https://www.youtube.com/embed/live_stream?channel=${channelId}&autoplay=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1`;
+
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    btn.innerHTML = '<span style="font-size: 20px;">🔴</span> ലൈവ് പരിശോധിക്കുക';
+                    btn.disabled = false;
+                }, 2000);
+
+                // Scroll to the live box
+                liveStreamBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            function closeLiveBox() {
+                liveStreamBox.style.display = 'none';
+                liveIframe.src = '';
+            }
+        </script>
+        <!-- ======== Live/Video Section End ========== -->
+
         <!-- ======== Feature Area Start ========== -->
         <div class="feature-area section-space--pt_90" style="padding-top: 90px;">
             <div class="container">
