@@ -136,8 +136,217 @@
 
     <div class="site-wrapper-reveal">
 
+        <!-- ======== Video Gallery Section Start ========== -->
+        <div class="video-gallery-area section-space--ptb_120"
+            style="background: linear-gradient(135deg, #fff8f1 0%, #ffe4d4 100%);">
+            <div class="container">
+                <!-- Section Title -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title-wrap text-center mb-5">
+                            <h3 class="section-title center-style" style="font-weight: bold;">🎥 വീഡിയോ ഗാലറി</h3>
+                            <p class="mt-3">ക്ഷേത്ര ചടങ്ങുകളുടെ തത്സമയ സംപ്രേക്ഷണവും മുൻ വീഡിയോകളും</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Stream Section -->
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-10">
+                        <div class="live-stream-wrapper"
+                            style="background: #fff; border-radius: 15px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                            <div class="live-header text-center mb-4">
+                                <span id="live-badge" class="live-badge"
+                                    style="display: inline-block; background: #ff0000; color: white; padding: 8px 20px; border-radius: 25px; font-weight: bold; animation: pulse 2s infinite;">
+                                    🔴 LIVE ദർശനം
+                                </span>
+                                <h4 class="mt-3" style="color: #333;">തത്സമയ സംപ്രേക്ഷണം</h4>
+                                <p style="color: #666;">ക്ഷേത്ര ചടങ്ങുകൾ തത്സമയം കാണുക</p>
+                            </div>
+                            <div class="video-wrapper"
+                                style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">
+                                <!-- Live stream using Channel ID: UCH4T7r80lexo1i2v7tQO4NQ -->
+                                <iframe id="live-stream-frame"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                                    src="https://www.youtube.com/embed/live_stream?channel=UCH4T7r80lexo1i2v7tQO4NQ&autoplay=0"
+                                    title="തത്സമയ ദർശനം - Live Darshan"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                            <p class="text-center mt-3" style="color: #888; font-size: 14px;">
+                                <i>* ലൈവ് ഇല്ലാത്ത സമയത്ത് ഏറ്റവും പുതിയ വീഡിയോ കാണിക്കും</i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Previous Videos Section -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title-wrap text-center mb-4">
+                            <h4 style="font-weight: bold; color: #333;">📺 മുൻ സംപ്രേക്ഷണങ്ങൾ</h4>
+                            <p style="color: #666;">കഴിഞ്ഞ ചടങ്ങുകളുടെ വീഡിയോകൾ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="previous-videos">
+                    <!-- Video 1 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="video-card"
+                            style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                            <div class="video-wrapper"
+                                style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                <iframe
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                                    src="https://www.youtube.com/embed/y5Y6Ce43jQE" title="കല്ലൂപ്പാറ പടയണി"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="video-info" style="padding: 15px;">
+                                <h5 style="font-size: 16px; margin-bottom: 5px; color: #333;">കല്ലൂപ്പാറ പടയണി</h5>
+                                <p style="font-size: 13px; color: #888; margin: 0;">ക്ഷേത്ര ഉത്സവം</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 2 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="video-card"
+                            style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                            <div class="video-wrapper"
+                                style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                <iframe
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                                    src="https://www.youtube.com/embed/y5Y6Ce43jQE" title="ക്ഷേത്ര ദർശനം"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="video-info" style="padding: 15px;">
+                                <h5 style="font-size: 16px; margin-bottom: 5px; color: #333;">ക്ഷേത്ര ദർശനം</h5>
+                                <p style="font-size: 13px; color: #888; margin: 0;">അമ്മയുടെ അനുഗ്രഹം</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="video-card"
+                            style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                            <div class="video-wrapper"
+                                style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                <iframe
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                                    src="https://www.youtube.com/embed/y5Y6Ce43jQE" title="പൂജ വിധികൾ"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="video-info" style="padding: 15px;">
+                                <h5 style="font-size: 16px; margin-bottom: 5px; color: #333;">പൂജ വിധികൾ</h5>
+                                <p style="font-size: 13px; color: #888; margin: 0;">ദൈനംദിന പൂജ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 4 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="video-card"
+                            style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                            <div class="video-wrapper"
+                                style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                <iframe
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                                    src="https://www.youtube.com/embed/VIDEO_ID_4" title="വീഡിയോ 4"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="video-info" style="padding: 15px;">
+                                <h5 style="font-size: 16px; margin-bottom: 5px; color: #333;">കളമെഴുത്തും പാട്ടും</h5>
+                                <p style="font-size: 13px; color: #888; margin: 0;">ക്ഷേത്ര ചടങ്ങ്</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 5 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="video-card"
+                            style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                            <div class="video-wrapper"
+                                style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                <iframe
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                                    src="https://www.youtube.com/embed/VIDEO_ID_5" title="വീഡിയോ 5"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="video-info" style="padding: 15px;">
+                                <h5 style="font-size: 16px; margin-bottom: 5px; color: #333;">നവരാത്രി പൂജ</h5>
+                                <p style="font-size: 13px; color: #888; margin: 0;">വിശേഷ ആരാധന</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- YouTube Channel Link -->
+                <div class="row mt-4">
+                    <div class="col-12 text-center">
+                        <a href="https://www.youtube.com/channel/UCH4T7r80lexo1i2v7tQO4NQ" target="_blank"
+                            style="display: inline-block; background: #ff0000; color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; transition: all 0.3s ease;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 16 16" style="margin-right: 8px; vertical-align: middle;">
+                                <path
+                                    d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+                            </svg>
+                            കൂടുതൽ വീഡിയോകൾക്ക് Subscribe ചെയ്യുക
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ======== Video Gallery Section End ========== -->
+
+        <style>
+            @keyframes pulse {
+                0% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.7;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            .video-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .live-badge {
+                font-size: 14px;
+                letter-spacing: 1px;
+            }
+        </style>
+
+        <!-- ======== Photo Gallery Section Start ========== -->
         <div class="gallery-area section-space--pb_120 section-space--pt_90">
             <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title-wrap text-center mb-5">
+                            <h3 class="section-title center-style" style="font-weight: bold;">📷 ഫോട്ടോ ഗാലറി</h3>
+                            <p class="mt-3">ക്ഷേത്രത്തിന്റെ മനോഹരമായ ചിത്രങ്ങൾ</p>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
 
                     <div class="col-lg-4 col-md-6 col-sm-6">
@@ -242,6 +451,7 @@
                 </div>
             </div>
         </div>
+        <!-- ======== Photo Gallery Section End ========== -->
 
     </div>
 
