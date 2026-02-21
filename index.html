@@ -29,6 +29,259 @@
             padding: 0 !important;
             border: none !important;
         }
+
+        /* Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: chatPulse 2s infinite;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+        }
+
+        .chatbot-toggle span {
+            font-size: 28px;
+        }
+
+        @keyframes chatPulse {
+            0%, 100% { box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4); }
+            50% { box-shadow: 0 4px 25px rgba(255, 107, 53, 0.7); }
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            max-width: 90vw;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            display: none;
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+        }
+
+        .chatbot-window.active {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chatbot-header-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chatbot-header-info span {
+            font-size: 24px;
+        }
+
+        .chatbot-header h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .chatbot-header p {
+            margin: 0;
+            font-size: 11px;
+            opacity: 0.9;
+        }
+
+        .chatbot-close {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .chatbot-close:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .chatbot-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 15px;
+            background: #f8f9fa;
+        }
+
+        .chat-message {
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-message.bot {
+            align-items: flex-start;
+        }
+
+        .chat-message.user {
+            align-items: flex-end;
+        }
+
+        .message-bubble {
+            max-width: 85%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .bot .message-bubble {
+            background: white;
+            color: #333;
+            border-bottom-left-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .user .message-bubble {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+
+        .quick-actions {
+            padding: 10px 15px;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        .quick-actions-title {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .quick-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .quick-btn {
+            background: #fff3ed;
+            border: 1px solid #ff6b35;
+            color: #ff6b35;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .quick-btn:hover {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .chatbot-input-area {
+            padding: 10px 15px;
+            background: white;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .chatbot-input:focus {
+            border-color: #ff6b35;
+        }
+
+        .chatbot-send {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.3s;
+        }
+
+        .chatbot-send:hover {
+            transform: scale(1.1);
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 10px 15px;
+            background: white;
+            border-radius: 15px;
+            border-bottom-left-radius: 5px;
+            width: fit-content;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: #ccc;
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typingBounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
     </style>
 
 </head>
@@ -1331,6 +1584,49 @@
     <!--====================  End of mobile menu overlay  ====================-->
 
 
+    <!-- ========== Chatbot Widget Start ========== -->
+    <div class="chatbot-container">
+        <!-- Chat Toggle Button -->
+        <button class="chatbot-toggle" onclick="toggleChatbot()" title="ചാറ്റ് ചെയ്യുക">
+            <span id="chatbot-icon">🙏</span>
+        </button>
+
+        <!-- Chat Window -->
+        <div class="chatbot-window" id="chatbot-window">
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <span>🙏</span>
+                    <div>
+                        <h4>കല്ലൂപ്പാറ ദേവി ക്ഷേത്രം</h4>
+                        <p>സഹായത്തിന് തയ്യാറാണ്</p>
+                    </div>
+                </div>
+                <button class="chatbot-close" onclick="toggleChatbot()">✕</button>
+            </div>
+
+            <div class="chatbot-messages" id="chatbot-messages">
+                <!-- Messages will be added here -->
+            </div>
+
+            <div class="quick-actions">
+                <div class="quick-actions-title">പെട്ടെന്ന് സഹായം:</div>
+                <div class="quick-buttons">
+                    <button class="quick-btn" onclick="quickAction('live')">🔴 ലൈവ്</button>
+                    <button class="quick-btn" onclick="quickAction('gallery')">📷 ഗാലറി</button>
+                    <button class="quick-btn" onclick="quickAction('pooja')">🙏 പൂജകൾ</button>
+                    <button class="quick-btn" onclick="quickAction('history')">📜 ചരിത്രം</button>
+                    <button class="quick-btn" onclick="quickAction('timing')">🕐 സമയം</button>
+                    <button class="quick-btn" onclick="quickAction('contact')">📞 ബന്ധപ്പെടുക</button>
+                </div>
+            </div>
+
+            <div class="chatbot-input-area">
+                <input type="text" class="chatbot-input" id="chatbot-input" placeholder="നിങ്ങളുടെ ചോദ്യം ഇവിടെ..." onkeypress="handleKeyPress(event)">
+                <button class="chatbot-send" onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+    </div>
+    <!-- ========== Chatbot Widget End ========== -->
 
 
     <!-- JS
@@ -1354,6 +1650,233 @@
 
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+
+    <!-- Chatbot Script -->
+    <script>
+        // Temple Chatbot Data in Malayalam
+        const templeData = {
+            name: 'കല്ലൂപ്പാറ ഭഗവതി ക്ഷേത്രം',
+            location: 'പത്തനംതിട്ട ജില്ല, മാണിമലയാർ തീരം',
+            deity: 'ഭദ്രകാളി ദേവി',
+            specialty: 'അപൂർവമായ ശ്രീചക്ര പ്രതിഷ്ഠ',
+            festivals: ['കുംഭഭരണി', 'മകരഭരണി'],
+            timing: {
+                morning: 'രാവിലെ 5:00 - 12:00',
+                evening: 'വൈകുന്നേരം 5:00 - 8:00'
+            },
+            poojas: [
+                { name: 'ഉദയസ്തമന പൂജ', price: '₹5000/-' },
+                { name: 'അർച്ചന', price: '₹50/-' },
+                { name: 'പുഷ്പാഞ്ജലി', price: '₹100/-' },
+                { name: 'നെയ്‌വിളക്ക്', price: '₹150/-' }
+            ]
+        };
+
+        // Chatbot responses
+        const responses = {
+            greeting: [
+                'നമസ്കാരം! 🙏 കല്ലൂപ്പാറ ദേവി ക്ഷേത്രത്തിലേക്ക് സ്വാഗതം. എന്താണ് സഹായം വേണ്ടത്?',
+                'ഹലോ! 🙏 കല്ലൂപ്പാറ ഭഗവതി ക്ഷേത്രത്തിന്റെ ചാറ്റ്ബോട്ട് ആണ്. എങ്ങനെ സഹായിക്കാം?'
+            ],
+            history: `📜 <b>ക്ഷേത്ര ചരിത്രം:</b><br><br>
+                കല്ലൂപ്പാറ ഭഗവതി ക്ഷേത്രം പത്തനംതിട്ട ജില്ലയിലെ മാണിമലയാർ തീരത്ത് സ്ഥിതി ചെയ്യുന്നു. ഭദ്രകാളി ദേവിയാണ് ഇവിടുത്തെ ആദിമൂർത്തി.<br><br>
+                ✨ <b>പ്രത്യേകത:</b> അപൂർവമായ ശ്രീചക്ര പ്രതിഷ്ഠ<br><br>
+                🎉 <b>പ്രധാന ഉത്സവങ്ങൾ:</b> കുംഭഭരണി, മകരഭരണി`,
+            timing: `🕐 <b>ക്ഷേത്ര സമയം:</b><br><br>
+                🌅 <b>രാവിലെ:</b> 5:00 AM - 12:00 PM<br>
+                🌆 <b>വൈകുന്നേരം:</b> 5:00 PM - 8:00 PM<br><br>
+                📅 എല്ലാ ദിവസവും തുറന്നിരിക്കും`,
+            pooja: `🙏 <b>പ്രധാന പൂജകൾ:</b><br><br>
+                🪔 ഉദയസ്തമന പൂജ - ₹5000/-<br>
+                🌸 അർച്ചന - ₹50/-<br>
+                💐 പുഷ്പാഞ്ജലി - ₹100/-<br>
+                🪔 നെയ്‌വിളക്ക് - ₹150/-<br><br>
+                👉 കൂടുതൽ വിവരങ്ങൾക്ക് <a href="pooja.html" style="color:#ff6b35;">പൂജ പേജ്</a> സന്ദർശിക്കുക`,
+            location: `📍 <b>സ്ഥലം:</b><br><br>
+                കല്ലൂപ്പാറ ഭഗവതി ക്ഷേത്രം<br>
+                മാണിമലയാർ തീരം<br>
+                പത്തനംതിട്ട ജില്ല, കേരളം<br><br>
+                👉 <a href="contact-us.html" style="color:#ff6b35;">ബന്ധപ്പെടാൻ ഇവിടെ ക്ലിക്ക് ചെയ്യുക</a>`,
+            live: `🔴 <b>ലൈവ് ദർശനം:</b><br><br>
+                ക്ഷേത്ര പൂജകളും ചടങ്ങുകളും തത്സമയം കാണാം!<br><br>
+                👉 <a href="javascript:void(0)" onclick="goToLive()" style="color:#ff6b35;">ലൈവ് കാണാൻ ഇവിടെ ക്ലിക്ക് ചെയ്യുക</a><br>
+                👉 <a href="gallery.html" style="color:#ff6b35;">വീഡിയോ ഗാലറി കാണുക</a>`,
+            gallery: `📷 <b>ഗാലറി:</b><br><br>
+                ക്ഷേത്രത്തിന്റെ മനോഹരമായ ചിത്രങ്ങളും വീഡിയോകളും കാണാം.<br><br>
+                🎥 ലൈവ് സ്ട്രീമിംഗ് & പഴയ വീഡിയോകൾ<br>
+                📸 ക്ഷേത്ര ഫോട്ടോകൾ<br><br>
+                👉 <a href="gallery.html" style="color:#ff6b35;">ഗാലറി സന്ദർശിക്കുക</a>`,
+            contact: `📞 <b>ബന്ധപ്പെടുക:</b><br><br>
+                കൂടുതൽ വിവരങ്ങൾക്കും സഹായത്തിനും ഞങ്ങളെ ബന്ധപ്പെടുക.<br><br>
+                👉 <a href="contact-us.html" style="color:#ff6b35;">കോൺടാക്ട് പേജ് സന്ദർശിക്കുക</a>`,
+            default: `🙏 ക്ഷമിക്കണം, എനിക്ക് അത് മനസ്സിലായില്ല. താഴെയുള്ള ബട്ടണുകൾ ഉപയോഗിച്ച് സഹായം നേടുക അല്ലെങ്കിൽ ഇവ പരീക്ഷിക്കുക:<br><br>
+                • "ക്ഷേത്ര ചരിത്രം"<br>
+                • "പൂജ വിവരങ്ങൾ"<br>
+                • "സമയം"<br>
+                • "ലൈവ്"<br>
+                • "ഗാലറി"`
+        };
+
+        // Keywords for matching
+        const keywords = {
+            history: ['ചരിത്രം', 'history', 'കഥ', 'about', 'വിവരം', 'എന്താണ്', 'ക്ഷേത്രം'],
+            timing: ['സമയം', 'time', 'timing', 'എപ്പോൾ', 'തുറക്കുന്നത്', 'അടയ്ക്കുന്നത്', 'open', 'close'],
+            pooja: ['പൂജ', 'pooja', 'puja', 'അർച്ചന', 'വഴിപാട്', 'archana', 'offering'],
+            location: ['സ്ഥലം', 'location', 'address', 'എവിടെ', 'where', 'വിലാസം', 'reach'],
+            live: ['ലൈവ്', 'live', 'stream', 'streaming', 'തത്സമയം', 'video'],
+            gallery: ['ഗാലറി', 'gallery', 'photo', 'ഫോട്ടോ', 'ചിത്രം', 'image', 'പടം'],
+            contact: ['ബന്ധപ്പെടുക', 'contact', 'phone', 'ഫോൺ', 'നമ്പർ', 'call'],
+            greeting: ['ഹലോ', 'hello', 'hi', 'hai', 'നമസ്കാരം', 'hey', 'ഹായ്']
+        };
+
+        let chatbotOpen = false;
+        let isFirstOpen = true;
+
+        function toggleChatbot() {
+            const chatWindow = document.getElementById('chatbot-window');
+            const chatIcon = document.getElementById('chatbot-icon');
+            chatbotOpen = !chatbotOpen;
+
+            if (chatbotOpen) {
+                chatWindow.classList.add('active');
+                chatIcon.textContent = '✕';
+                if (isFirstOpen) {
+                    addBotMessage(responses.greeting[Math.floor(Math.random() * responses.greeting.length)]);
+                    isFirstOpen = false;
+                }
+            } else {
+                chatWindow.classList.remove('active');
+                chatIcon.textContent = '🙏';
+            }
+        }
+
+        function addBotMessage(message) {
+            const messagesContainer = document.getElementById('chatbot-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'chat-message bot';
+            messageDiv.innerHTML = `<div class="message-bubble">${message}</div>`;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function addUserMessage(message) {
+            const messagesContainer = document.getElementById('chatbot-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'chat-message user';
+            messageDiv.innerHTML = `<div class="message-bubble">${message}</div>`;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function showTyping() {
+            const messagesContainer = document.getElementById('chatbot-messages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'chat-message bot';
+            typingDiv.id = 'typing-indicator';
+            typingDiv.innerHTML = `<div class="typing-indicator"><span></span><span></span><span></span></div>`;
+            messagesContainer.appendChild(typingDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function hideTyping() {
+            const typing = document.getElementById('typing-indicator');
+            if (typing) typing.remove();
+        }
+
+        function findResponse(userInput) {
+            const input = userInput.toLowerCase();
+
+            for (const [category, words] of Object.entries(keywords)) {
+                for (const word of words) {
+                    if (input.includes(word.toLowerCase())) {
+                        if (category === 'greeting') return responses.greeting[Math.floor(Math.random() * responses.greeting.length)];
+                        if (category === 'history') return responses.history;
+                        if (category === 'timing') return responses.timing;
+                        if (category === 'pooja') return responses.pooja;
+                        if (category === 'location') return responses.location;
+                        if (category === 'live') return responses.live;
+                        if (category === 'gallery') return responses.gallery;
+                        if (category === 'contact') return responses.contact;
+                    }
+                }
+            }
+            return responses.default;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatbot-input');
+            const message = input.value.trim();
+
+            if (message === '') return;
+
+            addUserMessage(message);
+            input.value = '';
+
+            showTyping();
+
+            setTimeout(() => {
+                hideTyping();
+                const response = findResponse(message);
+                addBotMessage(response);
+            }, 800);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function quickAction(action) {
+            let response;
+            let userMessage;
+
+            switch(action) {
+                case 'live':
+                    userMessage = '🔴 ലൈവ്';
+                    response = responses.live;
+                    break;
+                case 'gallery':
+                    userMessage = '📷 ഗാലറി';
+                    response = responses.gallery;
+                    break;
+                case 'pooja':
+                    userMessage = '🙏 പൂജകൾ';
+                    response = responses.pooja;
+                    break;
+                case 'history':
+                    userMessage = '📜 ചരിത്രം';
+                    response = responses.history;
+                    break;
+                case 'timing':
+                    userMessage = '🕐 സമയം';
+                    response = responses.timing;
+                    break;
+                case 'contact':
+                    userMessage = '📞 ബന്ധപ്പെടുക';
+                    response = responses.contact;
+                    break;
+            }
+
+            addUserMessage(userMessage);
+            showTyping();
+
+            setTimeout(() => {
+                hideTyping();
+                addBotMessage(response);
+            }, 500);
+        }
+
+        function goToLive() {
+            toggleChatbot();
+            // Scroll to live section or trigger live check
+            const liveBtn = document.getElementById('check-live-btn');
+            if (liveBtn) {
+                liveBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setTimeout(() => checkForLive(), 500);
+            }
+        }
+    </script>
 
 
 </body>
