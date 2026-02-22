@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ഡൗൺലോഡുകൾ - കല്ലൂപ്പാറ ദേവി ക്ഷേത്രം</title>
+    <meta name="description" content="കല്ലൂപ്പാറ ദേവി ക്ഷേത്രം - ക്ഷേത്ര കലണ്ടർ, ഭക്തിഗാനങ്ങൾ ഡൗൺലോഡ് ചെയ്യുക">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/icons/globalicon.jpg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/vendor.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+
+    <style>
+        html,
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+
+        /* Downloads Page Styles */
+        .downloads-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #fef9f3 0%, #fff5eb 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #8B4513;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        /* Download Cards Container */
+        .downloads-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Category Card */
+        .download-category {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .download-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-header {
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .category-header.calendar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .category-header.songs {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+        }
+
+        .category-header h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .category-header p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 10px 0 0;
+            font-size: 1rem;
+        }
+
+        /* Download Items List */
+        .download-items {
+            padding: 25px;
+        }
+
+        .download-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .download-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .download-item:hover {
+            background: #fff;
+            border-color: #667eea;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.15);
+        }
+
+        .item-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .item-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .songs .item-icon {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .item-details h4 {
+            margin: 0 0 5px;
+            font-size: 1rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .item-details span {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .songs .download-btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .songs .download-btn:hover {
+            box-shadow: 0 5px 20px rgba(240, 147, 251, 0.4);
+        }
+
+        .download-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Coming Soon Badge */
+        .coming-soon {
+            padding: 8px 16px;
+            background: #f0f0f0;
+            color: #888;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+            border-left: 4px solid #f7931e;
+            padding: 20px 25px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-box h4 {
+            color: #8B4513;
+            margin: 0 0 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box p {
+            color: #666;
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .downloads-container {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .download-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .item-info {
+                flex-direction: column;
+            }
+
+            .category-header h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .downloads-section {
+                padding: 50px 0;
+            }
+
+            .category-header {
+                padding: 20px;
+            }
+
+            .category-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+            }
+
+            .download-items {
+                padding: 15px;
+            }
+
+            .download-item {
+                padding: 15px;
+            }
+
+            .download-btn {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--====================  header area ====================-->
+    <div class="header-area header-area--default">
+
+        <!-- Header Bottom Wrap Start -->
+        <header class="header-area header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 d-flex align-items-center">
+                        <div class="header__logo">
+                            <div class="logo">
+                                <a href="index.html"><img src="assets/images/icons/globalicon.jpg"
+                                        style="height: 80px; width: auto; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 10px rgba(0,0,0,0.15);"
+                                        alt="കല്ലൂപ്പാറ ദേവി ക്ഷേത്രം"></a>
+                            </div>
+                        </div>
+                        <div class="header-right">
+                            <div class="header__navigation menu-style-three d-none d-lg-block">
+                                <nav class="navigation-menu">
+                                    <ul>
+                                        <li class="has-children">
+                                            <a href="about-us.html"><span>ആമുഖം</span></a>
+                                        </li>
+                                        <li class="has-children">
+                                            <a href="pooja.html"><span>പൂജ</span></a>
+                                        </li>
+                                        <li class="has-children has-children--multilevel-submenu">
+                                            <a href="committee.html"><span>കമ്മിറ്റി</span></a>
+                                        </li>
+                                        <li class="has-children has-children--multilevel-submenu">
+                                            <a href="gallery.html"><span>ഗാലറി</span></a>
+                                        </li>
+                                        <li class="has-children active">
+                                            <a href="downloads.html"><span>ഡൗൺലോഡുകൾ</span></a>
+                                        </li>
+                                        <li class="has-children">
+                                            <a href="contact-us.html"><span>ബന്ധപ്പെടുക</span></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                            <div class="header-btn text-end d-none d-sm-block ml-lg-4">
+                                <a class="btn-circle btn-default btn" href="donation.html">സംഭാവന</a>
+                            </div>
+
+                            <!-- mobile menu -->
+                            <div class="mobile-navigation-icon d-block d-lg-none" id="mobile-menu-trigger">
+                                <i></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header Bottom Wrap End -->
+
+    </div>
+    <!--====================  End of header area  ====================-->
+
+    <!-- breadcrumb-area start -->
+    <div class="breadcrumb-area bg-overlay-black-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 position-relative">
+                    <h3 class="breadcrumb-title text-white">ഡൗൺലോഡുകൾ</h3>
+                    <!-- breadcrumb-list start -->
+                    <ul class="breadcrumb-list">
+                        <li class="breadcrumb-item"><a href="index.html">ഹോം</a></li>
+                        <li class="breadcrumb-item active">ഡൗൺലോഡുകൾ</li>
+                    </ul>
+                    <!-- breadcrumb-list end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb-area end -->
+
+    <div class="site-wrapper-reveal">
+        <!-- Downloads Section -->
+        <section class="downloads-section">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <h2>📥 ഡൗൺലോഡ് കേന്ദ്രം</h2>
+                    <div class="section-divider"></div>
+                    <p>ക്ഷേത്ര കലണ്ടർ, ഭക്തിഗാനങ്ങൾ, മറ്റ് പ്രധാന രേഖകൾ എന്നിവ ഇവിടെ നിന്ന് ഡൗൺലോഡ് ചെയ്യാം</p>
+                </div>
+
+                <!-- Downloads Grid -->
+                <div class="downloads-container">
+                    <!-- Calendar Category -->
+                    <div class="download-category calendar">
+                        <div class="category-header calendar">
+                            <div class="category-icon">📅</div>
+                            <h3>ക്ഷേത്ര കലണ്ടർ</h3>
+                            <p>വാർഷിക ഉത്സവങ്ങളും പൂജാ സമയവും</p>
+                        </div>
+                        <div class="download-items">
+                            <!-- Calendar 2025 -->
+                            <div class="download-item">
+                                <div class="item-info">
+                                    <div class="item-icon">📅</div>
+                                    <div class="item-details">
+                                        <h4>ക്ഷേത്ര കലണ്ടർ 2025</h4>
+                                        <span>PDF • 2.5 MB</span>
+                                    </div>
+                                </div>
+                                <a href="assets/downloads/calendar-2025.pdf" class="download-btn" download>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                    </svg>
+                                    ഡൗൺലോഡ്
+                                </a>
+                            </div>
+
+                            <!-- Calendar 2026 -->
+                            <div class="download-item">
+                                <div class="item-info">
+                                    <div class="item-icon">📅</div>
+                                    <div class="item-details">
+                                        <h4>ക്ഷേത്ര കലണ്ടർ 2026</h4>
+                                        <span>PDF • 2.8 MB</span>
+                                    </div>
+                                </div>
+                                <a href="assets/downloads/calendar-2026.pdf" class="download-btn" download>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                    </svg>
+                                    ഡൗൺലോഡ്
+                                </a>
+                            </div>
+
+                            <!-- Festival Schedule -->
+                            <div class="download-item">
+                                <div class="item-info">
+                                    <div class="item-icon">🎉</div>
+                                    <div class="item-details">
+                                        <h4>ഉത്സവ സമയക്രമം</h4>
+                                        <span>PDF • 1.2 MB</span>
+                                    </div>
+                                </div>
+                                <a href="assets/downloads/festival-schedule.pdf" class="download-btn" download>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                    </svg>
+                                    ഡൗൺലോഡ്
+                                </a>
+                            </div>
+
+                            <!-- Pooja Timings -->
+                            <div class="download-item">
+                                <div class="item-info">
+                                    <div class="item-icon">🕐</div>
+                                    <div class="item-details">
+                                        <h4>പൂജാ സമയ പട്ടിക</h4>
+                                        <span>PDF • 800 KB</span>
+                                    </div>
+                                </div>
+                                <a href="assets/downloads/pooja-timings.pdf" class="download-btn" download>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                    </svg>
+                                    ഡൗൺലോഡ്
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Songs Category -->
+                    <div class="download-category songs">
+                        <div class="category-header songs">
+                            <div class="category-icon">🎵</div>
+                            <h3>ഭക്തിഗാനങ്ങൾ</h3>
+                            <p>ദേവീ സ്തുതികളും കീർത്തനങ്ങളും</p>
+                        </div>
+                        <div class="download-items">
+                            <!-- Devi Stotram -->
+                            <div class="download-item">
+                                <div class="item-info">
+                                    <div class="item-icon">🎵</div>
+                                    <div class="item-details">
+                                        <h4>ദേവീ സ്തോത്രം</h4>
+                                        <span>MP3 • 5.2 MB</span>
+                                    </div>
+                                </div>
+                                <a href="assets/downloads/devi-stotram.mp3" class="download-btn" download>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                    </svg>
+                                    ഡൗൺലോഡ്
+                                </a>
+                            </div>
+
+                            <!-- Lalitha Sahasranamam -->
+                            <div class="download-item">
+                                <div class="item-info">
+                                    <div class="item-icon">🎵</div>
+                                    <div class="item-details">
+                                        <h4>ലളിതാ സഹസ്രനാമം</h4>
+                                        <span>MP3 • 12.5 MB</span>
+                                    </div>
+                                </div>
+                                <a href="assets/downloads/lalitha-sahasranamam.mp3" class="download-btn" download>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                    </svg>
+                                    ഡൗൺലോഡ്
+                                </a>
+                            </div>
+
+                            <!-- Devi Mahatmyam -->
+                            <div class="download-item">
+                                <div class="item-info">
+                                    <div class="item-icon">🎵</div>
+                                    <div class="item-details">
+                                        <h4>ദേവീ മാഹാത്മ്യം</h4>
+                                        <span>MP3 • 18.3 MB</span>
+                                    </div>
+                                </div>
+                                <a href="assets/downloads/devi-mahatmyam.mp3" class="download-btn" download>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                    </svg>
+                                    ഡൗൺലോഡ്
+                                </a>
+                            </div>
+
+                            <!-- Bhakti Gaanangal Collection -->
+                            <div class="download-item">
+                                <div class="item-info">
+                                    <div class="item-icon">📁</div>
+                                    <div class="item-details">
+                                        <h4>ഭക്തിഗാന സമാഹാരം</h4>
+                                        <span>ZIP • 45 MB</span>
+                                    </div>
+                                </div>
+                                <a href="assets/downloads/bhakti-gaanangal.zip" class="download-btn" download>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                    </svg>
+                                    ഡൗൺലോഡ്
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Box -->
+                <div class="info-box">
+                    <h4>ℹ️ ശ്രദ്ധിക്കുക</h4>
+                    <p>
+                        ഈ ഫയലുകൾ സൗജന്യമായി ഡൗൺലോഡ് ചെയ്യാം. വാണിജ്യ ആവശ്യങ്ങൾക്ക് ഉപയോഗിക്കരുത്.
+                        കൂടുതൽ ഭക്തിഗാനങ്ങളും രേഖകളും ആവശ്യമെങ്കിൽ ക്ഷേത്ര ഓഫീസുമായി ബന്ധപ്പെടുക.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--==========// Footer Area Start ==========-->
+    <style>
+        .new-footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 60px 0 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            color: #ff6b35;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: #ff6b35;
+        }
+
+        .footer-logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-logo-section img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff6b35;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo-section .temple-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 107, 53, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff6b35;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: #ff6b35;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links ul li a:hover {
+            color: #ff6b35;
+            padding-left: 5px;
+        }
+
+        .footer-timing {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .timing-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .timing-icon {
+            font-size: 20px;
+        }
+
+        .footer-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-info ul li {
+            color: #ccc;
+            margin-bottom: 8px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            color: #888;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-logo-section {
+                align-items: center;
+            }
+
+            .footer-section h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-timing {
+                align-items: center;
+            }
+
+            .new-footer {
+                padding: 40px 0 20px;
+            }
+
+            .footer-section h4 {
+                font-size: 16px;
+            }
+
+            .footer-logo-section img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+
+    <footer class="new-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Logo & Temple Name -->
+                <div class="footer-section footer-logo-section">
+                    <a href="index.html">
+                        <img src="assets/images/icons/globalicon.jpg" alt="കല്ലൂപ്പാറ ദേവി ക്ഷേത്രം">
+                    </a>
+                    <span class="temple-name">കല്ലൂപ്പാറ ദേവി ക്ഷേത്രം</span>
+                    <div class="footer-social">
+                        <a href="#" title="Facebook"><i class="flaticon-facebook"></i></a>
+                        <a href="#" title="YouTube"><i class="flaticon-youtube"></i></a>
+                        <a href="#" title="Instagram"><i class="flaticon-pinterest-social-logo"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section footer-links">
+                    <h4>പ്രധാന ലിങ്കുകൾ</h4>
+                    <ul>
+                        <li><a href="index.html">🏠 ഹോം</a></li>
+                        <li><a href="about-us.html">📖 ആമുഖം</a></li>
+                        <li><a href="pooja.html">🙏 പൂജകൾ</a></li>
+                        <li><a href="gallery.html">📷 ഗാലറി</a></li>
+                        <li><a href="downloads.html">📥 ഡൗൺലോഡുകൾ</a></li>
+                        <li><a href="contact-us.html">📞 ബന്ധപ്പെടുക</a></li>
+                    </ul>
+                </div>
+
+                <!-- Timing -->
+                <div class="footer-section">
+                    <h4>ദർശന സമയം</h4>
+                    <div class="footer-timing">
+                        <div class="timing-item">
+                            <span class="timing-icon">🌅</span>
+                            <span>രാവിലെ: 5:30 AM - 12:00 PM</span>
+                        </div>
+                        <div class="timing-item">
+                            <span class="timing-icon">🌆</span>
+                            <span>വൈകുന്നേരം: 5:00 PM - 8:30 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address -->
+                <div class="footer-section footer-info">
+                    <h4>വിലാസം</h4>
+                    <ul>
+                        <li>📍 കല്ലൂപ്പാറ ദേവി ക്ഷേത്രം</li>
+                        <li>കല്ലൂപ്പാറ പി.ഒ</li>
+                        <li>തിരുവല്ല – മല്ലപ്പള്ളി റോഡ്</li>
+                        <li>പത്തനംതിട്ട ജില്ല</li>
+                        <li>കേരളം – 689583, ഇന്ത്യ</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>© 2025 കല്ലൂപ്പാറ ദേവി ക്ഷേത്രം. എല്ലാ അവകാശങ്ങളും സംരക്ഷിതം. 🙏</p>
+            </div>
+        </div>
+    </footer>
+    <!--==========// Footer Area End ==========-->
+
+    <!--====================  scroll top ====================-->
+    <a href="#" class="scroll-top" id="scroll-top">
+        <i class="arrow-top flaticon-up-arrow"></i>
+        <i class="arrow-bottom flaticon-up-arrow"></i>
+    </a>
+    <!--====================  End of scroll top  ====================-->
+
+    <!--====================  mobile menu overlay ====================-->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <div class="mobile-menu-overlay__inner">
+            <div class="mobile-menu-overlay__header">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 col-8">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="assets/images/icons/globalicon.jpg"
+                                        style="height: 80px; width: auto; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 10px rgba(0,0,0,0.15);"
+                                        class="img-fluid" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-4">
+                            <div class="mobile-menu-content text-end">
+                                <span class="mobile-navigation-close-icon" id="mobile-menu-close-trigger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu-overlay__body">
+                <nav class="offcanvas-navigation">
+                    <ul>
+                        <li class="has-children">
+                            <a href="index.html">ഹോം</a>
+                        </li>
+                        <li class="has-children">
+                            <a href="about-us.html">ആമുഖം</a>
+                        </li>
+                        <li class="has-children">
+                            <a href="pooja.html">പൂജ</a>
+                        </li>
+                        <li class="has-children">
+                            <a href="committee.html">കമ്മിറ്റി</a>
+                        </li>
+                        <li class="has-children">
+                            <a href="gallery.html">ഗാലറി</a>
+                        </li>
+                        <li class="has-children active">
+                            <a href="downloads.html">ഡൗൺലോഡുകൾ</a>
+                        </li>
+                        <li class="has-children">
+                            <a href="contact-us.html">ബന്ധപ്പെടുക</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!--====================  End of mobile menu overlay  ====================-->
+
+    <!-- JS -->
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/plugins.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
