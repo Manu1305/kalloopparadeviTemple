@@ -29,7 +29,77 @@
             padding: 0 !important;
             border: none !important;
         }
+
+        /* Google Translate Widget Styling */
+        .translate-widget {
+            margin-left: 15px;
+        }
+
+        #google_translate_element {
+            display: inline-block;
+        }
+
+        #google_translate_element select {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            outline: none;
+            font-weight: 500;
+        }
+
+        #google_translate_element select:hover {
+            opacity: 0.9;
+        }
+
+        /* Hide Google Translate branding */
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+
+        body {
+            top: 0 !important;
+        }
+
+        .goog-te-gadget {
+            font-size: 0 !important;
+        }
+
+        .goog-te-gadget .goog-te-combo {
+            font-size: 13px !important;
+        }
+
+        .goog-logo-link {
+            display: none !important;
+        }
+
+        .goog-te-gadget>span {
+            display: none !important;
+        }
+
+        /* Mobile translate button */
+        .mobile-translate {
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
     </style>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ml',
+                includedLanguages: 'en,hi,ta,te,kn,ml,bn,gu,mr,pa',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </head>
 
@@ -90,6 +160,11 @@
 
                             <div class="header-btn text-end d-none d-sm-block ml-lg-4">
                                 <a class="btn-circle btn-default btn" href="#">സംഭാവന</a>
+                            </div>
+
+                            <!-- Google Translate Widget -->
+                            <div class="translate-widget d-none d-sm-block ml-3">
+                                <div id="google_translate_element"></div>
                             </div>
 
                             <!-- mobile menu -->
@@ -765,6 +840,25 @@
                 </div>
             </div>
             <div class="mobile-menu-overlay__body">
+                <!-- Mobile Translate Widget -->
+                <div class="mobile-translate"
+                    style="padding: 15px 20px; background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); margin-bottom: 10px;">
+                    <div style="color: white; font-size: 12px; margin-bottom: 8px;">🌐 Select Language:</div>
+                    <div id="google_translate_element_mobile"></div>
+                </div>
+                <script type="text/javascript">
+                    function googleTranslateElementInit2() {
+                        new google.translate.TranslateElement({
+                            pageLanguage: 'ml',
+                            includedLanguages: 'en,hi,ta,te,kn,ml,bn,gu,mr,pa',
+                            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                            autoDisplay: false
+                        }, 'google_translate_element_mobile');
+                    }
+                    if (typeof google !== 'undefined' && google.translate) {
+                        googleTranslateElementInit2();
+                    }
+                </script>
                 <nav class="offcanvas-navigation">
                     <ul>
                         <li class="has-children">
