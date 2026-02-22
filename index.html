@@ -33,10 +33,29 @@
         /* Chatbot Styles */
         .chatbot-container {
             position: fixed;
-            bottom: 20px;
+            bottom: 30px;
             right: 20px;
             z-index: 9999;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Move scroll-top button to left side when chatbot exists */
+        .scroll-top.show {
+            right: 90px !important;
+            bottom: 30px !important;
+        }
+
+        @media (max-width: 576px) {
+            .chatbot-container {
+                bottom: 25px;
+                right: 15px;
+            }
+
+            .scroll-top.show {
+                right: auto !important;
+                left: 15px !important;
+                bottom: 25px !important;
+            }
         }
 
         .chatbot-toggle {
@@ -76,21 +95,34 @@
         }
 
         .chatbot-window {
-            position: absolute;
-            bottom: 70px;
-            right: 0;
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
             width: 350px;
-            max-width: 90vw;
+            max-width: calc(100vw - 40px);
+            max-height: calc(100vh - 120px);
             background: #fff;
             border-radius: 15px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             display: none;
             overflow: hidden;
             animation: slideUp 0.3s ease;
+            z-index: 10000;
+        }
+
+        @media (max-width: 576px) {
+            .chatbot-window {
+                bottom: 95px;
+                right: 10px;
+                left: 10px;
+                width: auto;
+                max-height: calc(100vh - 110px);
+            }
         }
 
         .chatbot-window.active {
-            display: block;
+            display: flex;
+            flex-direction: column;
         }
 
         @keyframes slideUp {
@@ -156,7 +188,9 @@
         }
 
         .chatbot-messages {
-            height: 300px;
+            height: 250px;
+            min-height: 150px;
+            flex: 1;
             overflow-y: auto;
             padding: 15px;
             background: #f8f9fa;
@@ -309,7 +343,77 @@
                 transform: translateY(-5px);
             }
         }
+
+        /* Google Translate Widget Styling */
+        .translate-widget {
+            margin-left: 15px;
+        }
+
+        #google_translate_element {
+            display: inline-block;
+        }
+
+        #google_translate_element select {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            outline: none;
+            font-weight: 500;
+        }
+
+        #google_translate_element select:hover {
+            opacity: 0.9;
+        }
+
+        /* Hide Google Translate branding */
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+
+        body {
+            top: 0 !important;
+        }
+
+        .goog-te-gadget {
+            font-size: 0 !important;
+        }
+
+        .goog-te-gadget .goog-te-combo {
+            font-size: 13px !important;
+        }
+
+        .goog-logo-link {
+            display: none !important;
+        }
+
+        .goog-te-gadget>span {
+            display: none !important;
+        }
+
+        /* Mobile translate button */
+        .mobile-translate {
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
     </style>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ml',
+                includedLanguages: 'en,hi,ta,te,kn,ml,bn,gu,mr,pa',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </head>
 
@@ -372,7 +476,12 @@
                             </div>
 
                             <div class="header-btn text-end d-none d-sm-block ml-lg-4">
-                                <a class="btn-circle btn-default btn" href="#">സംഭാവന</a>
+                                <a class="btn-circle btn-default btn" href="donation.html">സംഭാവന</a>
+                            </div>
+
+                            <!-- Google Translate Widget -->
+                            <div class="translate-widget d-none d-sm-block ml-3">
+                                <div id="google_translate_element"></div>
                             </div>
 
                             <!-- mobile menu -->
@@ -1755,6 +1864,25 @@
                 </div>
             </div>
             <div class="mobile-menu-overlay__body">
+                <!-- Mobile Translate Widget -->
+                <div class="mobile-translate"
+                    style="padding: 15px 20px; background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); margin-bottom: 10px;">
+                    <div style="color: white; font-size: 12px; margin-bottom: 8px;">🌐 Select Language:</div>
+                    <div id="google_translate_element_mobile"></div>
+                </div>
+                <script type="text/javascript">
+                    function googleTranslateElementInit2() {
+                        new google.translate.TranslateElement({
+                            pageLanguage: 'ml',
+                            includedLanguages: 'en,hi,ta,te,kn,ml,bn,gu,mr,pa',
+                            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                            autoDisplay: false
+                        }, 'google_translate_element_mobile');
+                    }
+                    if (typeof google !== 'undefined' && google.translate) {
+                        googleTranslateElementInit2();
+                    }
+                </script>
                 <nav class="offcanvas-navigation">
                     <ul>
                         <li class="has-children">
@@ -1799,7 +1927,7 @@
     <!-- ========== Chatbot Widget Start ========== -->
     <div class="chatbot-container">
         <!-- Chat Toggle Button -->
-        <button class="chatbot-toggle" onclick="toggleChatbot()" title="ചാറ്റ് ചെയ്യുക">
+        <button class="chatbot-toggle" onclick="toggleChatbot()" title="Chat with us">
             <span id="chatbot-icon">🙏</span>
         </button>
 
@@ -1809,8 +1937,8 @@
                 <div class="chatbot-header-info">
                     <span>🙏</span>
                     <div>
-                        <h4>കല്ലൂപ്പാറ ദേവി ക്ഷേത്രം</h4>
-                        <p>സഹായത്തിന് തയ്യാറാണ്</p>
+                        <h4>Kallooppara Devi Temple</h4>
+                        <p>Here to help you</p>
                     </div>
                 </div>
                 <button class="chatbot-close" onclick="toggleChatbot()">✕</button>
@@ -1821,19 +1949,19 @@
             </div>
 
             <div class="quick-actions">
-                <div class="quick-actions-title">പെട്ടെന്ന് സഹായം:</div>
+                <div class="quick-actions-title">Quick Help:</div>
                 <div class="quick-buttons">
-                    <button class="quick-btn" onclick="quickAction('live')">🔴 ലൈവ്</button>
-                    <button class="quick-btn" onclick="quickAction('gallery')">📷 ഗാലറി</button>
-                    <button class="quick-btn" onclick="quickAction('pooja')">🙏 പൂജകൾ</button>
-                    <button class="quick-btn" onclick="quickAction('history')">📜 ചരിത്രം</button>
-                    <button class="quick-btn" onclick="quickAction('timing')">🕐 സമയം</button>
-                    <button class="quick-btn" onclick="quickAction('contact')">📞 ബന്ധപ്പെടുക</button>
+                    <button class="quick-btn" onclick="quickAction('live')">🔴 Live</button>
+                    <button class="quick-btn" onclick="quickAction('gallery')">📷 Gallery</button>
+                    <button class="quick-btn" onclick="quickAction('pooja')">🙏 Poojas</button>
+                    <button class="quick-btn" onclick="quickAction('history')">📜 History</button>
+                    <button class="quick-btn" onclick="quickAction('timing')">🕐 Timings</button>
+                    <button class="quick-btn" onclick="quickAction('contact')">📞 Contact</button>
                 </div>
             </div>
 
             <div class="chatbot-input-area">
-                <input type="text" class="chatbot-input" id="chatbot-input" placeholder="നിങ്ങളുടെ ചോദ്യം ഇവിടെ..."
+                <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Type your question here..."
                     onkeypress="handleKeyPress(event)">
                 <button class="chatbot-send" onclick="sendMessage()">➤</button>
             </div>
@@ -1866,81 +1994,85 @@
 
     <!-- Chatbot Script -->
     <script>
-        // Temple Chatbot Data in Malayalam
-        const templeData = {
-            name: 'കല്ലൂപ്പാറ ഭഗവതി ക്ഷേത്രം',
-            location: 'പത്തനംതിട്ട ജില്ല, മാണിമലയാർ തീരം',
-            deity: 'ഭദ്രകാളി ദേവി',
-            specialty: 'അപൂർവമായ ശ്രീചക്ര പ്രതിഷ്ഠ',
-            festivals: ['കുംഭഭരണി', 'മകരഭരണി'],
-            timing: {
-                morning: 'രാവിലെ 5:00 - 12:00',
-                evening: 'വൈകുന്നേരം 5:00 - 8:00'
-            },
-            poojas: [
-                { name: 'ഉദയസ്തമന പൂജ', price: '₹5000/-' },
-                { name: 'അർച്ചന', price: '₹50/-' },
-                { name: 'പുഷ്പാഞ്ജലി', price: '₹100/-' },
-                { name: 'നെയ്‌വിളക്ക്', price: '₹150/-' }
-            ]
-        };
+        // ============================================
+        // AI Chatbot for Kallooppara Devi Temple
+        // Powered by OpenRouter API
+        // ============================================
 
-        // Chatbot responses
-        const responses = {
-            greeting: [
-                'നമസ്കാരം! 🙏 കല്ലൂപ്പാറ ദേവി ക്ഷേത്രത്തിലേക്ക് സ്വാഗതം. എന്താണ് സഹായം വേണ്ടത്?',
-                'ഹലോ! 🙏 കല്ലൂപ്പാറ ഭഗവതി ക്ഷേത്രത്തിന്റെ ചാറ്റ്ബോട്ട് ആണ്. എങ്ങനെ സഹായിക്കാം?'
-            ],
-            history: `📜 <b>ക്ഷേത്ര ചരിത്രം:</b><br><br>
-                കല്ലൂപ്പാറ ഭഗവതി ക്ഷേത്രം പത്തനംതിട്ട ജില്ലയിലെ മാണിമലയാർ തീരത്ത് സ്ഥിതി ചെയ്യുന്നു. ഭദ്രകാളി ദേവിയാണ് ഇവിടുത്തെ ആദിമൂർത്തി.<br><br>
-                ✨ <b>പ്രത്യേകത:</b> അപൂർവമായ ശ്രീചക്ര പ്രതിഷ്ഠ<br><br>
-                🎉 <b>പ്രധാന ഉത്സവങ്ങൾ:</b> കുംഭഭരണി, മകരഭരണി`,
-            timing: `🕐 <b>ക്ഷേത്ര സമയം:</b><br><br>
-                🌅 <b>രാവിലെ:</b> 5:00 AM - 12:00 PM<br>
-                🌆 <b>വൈകുന്നേരം:</b> 5:00 PM - 8:00 PM<br><br>
-                📅 എല്ലാ ദിവസവും തുറന്നിരിക്കും`,
-            pooja: `🙏 <b>പ്രധാന പൂജകൾ:</b><br><br>
-                🪔 ഉദയസ്തമന പൂജ - ₹5000/-<br>
-                🌸 അർച്ചന - ₹50/-<br>
-                💐 പുഷ്പാഞ്ജലി - ₹100/-<br>
-                🪔 നെയ്‌വിളക്ക് - ₹150/-<br><br>
-                👉 കൂടുതൽ വിവരങ്ങൾക്ക് <a href="pooja.html" style="color:#ff6b35;">പൂജ പേജ്</a> സന്ദർശിക്കുക`,
-            location: `📍 <b>സ്ഥലം:</b><br><br>
-                കല്ലൂപ്പാറ ഭഗവതി ക്ഷേത്രം<br>
-                മാണിമലയാർ തീരം<br>
-                പത്തനംതിട്ട ജില്ല, കേരളം<br><br>
-                👉 <a href="contact-us.html" style="color:#ff6b35;">ബന്ധപ്പെടാൻ ഇവിടെ ക്ലിക്ക് ചെയ്യുക</a>`,
-            live: `🔴 <b>ലൈവ് ദർശനം:</b><br><br>
-                ക്ഷേത്ര പൂജകളും ചടങ്ങുകളും തത്സമയം കാണാം!<br><br>
-                👉 <a href="javascript:void(0)" onclick="goToLive()" style="color:#ff6b35;">ലൈവ് കാണാൻ ഇവിടെ ക്ലിക്ക് ചെയ്യുക</a><br>
-                👉 <a href="gallery.html" style="color:#ff6b35;">വീഡിയോ ഗാലറി കാണുക</a>`,
-            gallery: `📷 <b>ഗാലറി:</b><br><br>
-                ക്ഷേത്രത്തിന്റെ മനോഹരമായ ചിത്രങ്ങളും വീഡിയോകളും കാണാം.<br><br>
-                🎥 ലൈവ് സ്ട്രീമിംഗ് & പഴയ വീഡിയോകൾ<br>
-                📸 ക്ഷേത്ര ഫോട്ടോകൾ<br><br>
-                👉 <a href="gallery.html" style="color:#ff6b35;">ഗാലറി സന്ദർശിക്കുക</a>`,
-            contact: `📞 <b>ബന്ധപ്പെടുക:</b><br><br>
-                കൂടുതൽ വിവരങ്ങൾക്കും സഹായത്തിനും ഞങ്ങളെ ബന്ധപ്പെടുക.<br><br>
-                👉 <a href="contact-us.html" style="color:#ff6b35;">കോൺടാക്ട് പേജ് സന്ദർശിക്കുക</a>`,
-            default: `🙏 ക്ഷമിക്കണം, എനിക്ക് അത് മനസ്സിലായില്ല. താഴെയുള്ള ബട്ടണുകൾ ഉപയോഗിച്ച് സഹായം നേടുക അല്ലെങ്കിൽ ഇവ പരീക്ഷിക്കുക:<br><br>
-                • "ക്ഷേത്ര ചരിത്രം"<br>
-                • "പൂജ വിവരങ്ങൾ"<br>
-                • "സമയം"<br>
-                • "ലൈവ്"<br>
-                • "ഗാലറി"`
-        };
+        const OPENROUTER_API_KEY = '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';
+        const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
-        // Keywords for matching
-        const keywords = {
-            history: ['ചരിത്രം', 'history', 'കഥ', 'about', 'വിവരം', 'എന്താണ്', 'ക്ഷേത്രം'],
-            timing: ['സമയം', 'time', 'timing', 'എപ്പോൾ', 'തുറക്കുന്നത്', 'അടയ്ക്കുന്നത്', 'open', 'close'],
-            pooja: ['പൂജ', 'pooja', 'puja', 'അർച്ചന', 'വഴിപാട്', 'archana', 'offering'],
-            location: ['സ്ഥലം', 'location', 'address', 'എവിടെ', 'where', 'വിലാസം', 'reach'],
-            live: ['ലൈവ്', 'live', 'stream', 'streaming', 'തത്സമയം', 'video'],
-            gallery: ['ഗാലറി', 'gallery', 'photo', 'ഫോട്ടോ', 'ചിത്രം', 'image', 'പടം'],
-            contact: ['ബന്ധപ്പെടുക', 'contact', 'phone', 'ഫോൺ', 'നമ്പർ', 'call'],
-            greeting: ['ഹലോ', 'hello', 'hi', 'hai', 'നമസ്കാരം', 'hey', 'ഹായ്']
-        };
+        // Temple Information for AI Context
+        const TEMPLE_INFO = `
+        ## കല്ലൂപ്പാറ ഭഗവതി ക്ഷേത്രം - Kallooppara Bhagavathi Temple
+
+        ### Basic Information:
+        - Name: കല്ലൂപ്പാറ ഭഗവതി ക്ഷേത്രം (Kallooppara Bhagavathi Temple)
+        - Location: Kallooppara P.O, Thiruvalla-Mallappally Road, Pathanamthitta District, Kerala - 689583, India
+        - Main Deity: ഭദ്രകാളി ദേവി (Bhadrakali Devi)
+        - Temple situated on the banks of Manimala River (മണിമലയാർ)
+        - Special Feature: Rare Sri Chakra Prathishta (അപൂർവമായ ശ്രീചക്ര പ്രതിഷ്ഠ)
+
+        ### Darshan Timings (ദർശന സമയം):
+        - Morning: 5:30 AM to 12:00 PM
+        - Evening: 5:00 PM to 8:30 PM
+        - Last darshan: 7:45 PM
+        - Temple is open all days
+
+        ### Main Poojas and Offerings (പ്രധാന പൂജകൾ):
+        - ഉദയസ്തമന പൂജ (Udayasthamana Pooja): ₹5000/-
+        - അർച്ചന (Archana): ₹50/-
+        - പുഷ്പാഞ്ജലി (Pushpanjali): ₹100/-
+        - നെയ്‌വിളക്ക് (Nei Vilakku): ₹150/-
+        - ഭഗവതി സേവ (Bhagavathi Seva): ₹500/-
+        - ത്രിമധുരം (Trimadhuram): ₹25/-
+        - കൂട്ട അർച്ചന (Kootta Archana): ₹20/-
+
+        ### Major Festivals (പ്രധാന ഉത്സവങ്ങൾ):
+        - കുംഭഭരണി (Kumbha Bharani) - Main festival
+        - മകരഭരണി (Makara Bharani)
+        - നവരാത്രി (Navaratri)
+        - വിജയദശമി (Vijayadashami)
+
+        ### Temple History:
+        Kallooppara Bhagavathi Temple is an ancient Hindu temple dedicated to Goddess Bhadrakali. The temple is known for its spiritual significance and the rare Sri Chakra installation. Devotees believe that worshipping here brings prosperity, protection, and blessings from the Divine Mother.
+
+        ### Facilities:
+        - Prasadam counter
+        - Annadanam (Free food) on special days
+        - Parking facility
+        - Rest rooms
+        - Live streaming of poojas available on YouTube
+
+        ### Contact & Website:
+        - Website pages: index.html (Home), about-us.html (About), pooja.html (Poojas), gallery.html (Gallery), committee.html (Committee), contact-us.html (Contact), donation.html (Donation), downloads.html (Downloads)
+        `;
+
+        // System Prompt for AI
+        const SYSTEM_PROMPT = `You are the AI assistant for Kallooppara Bhagavathi Temple in Kerala, India.
+
+RULES:
+1. ALWAYS respond in ENGLISH only, regardless of what language the user writes in.
+2. ONLY answer about this temple, poojas, Hindu traditions, spirituality.
+3. For unrelated topics, say: "Sorry, I can only help with temple-related queries. 🙏"
+4. Keep responses short (under 100 words), friendly, and helpful.
+5. Use 🙏 emoji occasionally.
+
+TEMPLE DETAILS:
+- Name: Kallooppara Bhagavathi Temple
+- Deity: Bhadrakali Devi (Goddess)
+- Location: Kallooppara P.O, Thiruvalla-Mallappally Road, Pathanamthitta District, Kerala - 689583
+- Special: Rare Sri Chakra installation
+- Morning Darshan: 5:30 AM - 12:00 PM
+- Evening Darshan: 5:00 PM - 8:30 PM
+- Last Entry: 7:45 PM
+- Main Poojas: Udayasthamana Pooja ₹5000, Archana ₹50, Pushpanjali ₹100, Nei Vilakku ₹150, Bhagavathi Seva ₹500
+- Festivals: Kumbha Bharani (main), Makara Bharani, Navaratri, Vijayadashami
+
+For greetings, warmly welcome them and offer to help with temple info.`;
+
+        // Conversation history for context
+        let conversationHistory = [];
 
         let chatbotOpen = false;
         let isFirstOpen = true;
@@ -1954,7 +2086,7 @@
                 chatWindow.classList.add('active');
                 chatIcon.textContent = '✕';
                 if (isFirstOpen) {
-                    addBotMessage(responses.greeting[Math.floor(Math.random() * responses.greeting.length)]);
+                    addBotMessage('Namaskaram! 🙏 Welcome to Kallooppara Devi Temple. Ask me about the temple, poojas, darshan timings, and more!');
                     isFirstOpen = false;
                 }
             } else {
@@ -1967,7 +2099,7 @@
             const messagesContainer = document.getElementById('chatbot-messages');
             const messageDiv = document.createElement('div');
             messageDiv.className = 'chat-message bot';
-            messageDiv.innerHTML = `<div class="message-bubble">${message}</div>`;
+            messageDiv.innerHTML = `<div class="message-bubble">${formatMessage(message)}</div>`;
             messagesContainer.appendChild(messageDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
@@ -1979,6 +2111,14 @@
             messageDiv.innerHTML = `<div class="message-bubble">${message}</div>`;
             messagesContainer.appendChild(messageDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function formatMessage(text) {
+            // Convert markdown-style formatting to HTML
+            return text
+                .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')
+                .replace(/\n/g, '<br>')
+                .replace(/•/g, '•');
         }
 
         function showTyping() {
@@ -1996,27 +2136,74 @@
             if (typing) typing.remove();
         }
 
-        function findResponse(userInput) {
-            const input = userInput.toLowerCase();
+        async function getAIResponse(userMessage) {
+            // Add user message to history
+            conversationHistory.push({
+                role: 'user',
+                content: userMessage
+            });
 
-            for (const [category, words] of Object.entries(keywords)) {
-                for (const word of words) {
-                    if (input.includes(word.toLowerCase())) {
-                        if (category === 'greeting') return responses.greeting[Math.floor(Math.random() * responses.greeting.length)];
-                        if (category === 'history') return responses.history;
-                        if (category === 'timing') return responses.timing;
-                        if (category === 'pooja') return responses.pooja;
-                        if (category === 'location') return responses.location;
-                        if (category === 'live') return responses.live;
-                        if (category === 'gallery') return responses.gallery;
-                        if (category === 'contact') return responses.contact;
-                    }
-                }
+            // Keep only last 10 messages for context
+            if (conversationHistory.length > 10) {
+                conversationHistory = conversationHistory.slice(-10);
             }
-            return responses.default;
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+                        'HTTP-Referer': window.location.href,
+                        'X-Title': 'Kallooppara Devi Temple Chatbot'
+                    },
+                    body: JSON.stringify({
+                        model: 'meta-llama/llama-3.1-8b-instruct',
+                        messages: [
+                            { role: 'system', content: SYSTEM_PROMPT },
+                            ...conversationHistory
+                        ],
+                        max_tokens: 500,
+                        temperature: 0.7
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('API request failed');
+                }
+
+                const data = await response.json();
+
+                // Handle different response formats
+                let aiMessage = data.choices[0].message.content;
+
+                // Clean up any reasoning/thinking that might leak through
+                if (aiMessage) {
+                    // Remove any "thinking" prefixes
+                    aiMessage = aiMessage.replace(/^(Okay|Let me|I need to|The user|Looking at|Wait|Alright|Double-check).*?\n\n/gi, '');
+                    aiMessage = aiMessage.replace(/<think>[\s\S]*?<\/think>/gi, '');
+                    aiMessage = aiMessage.trim();
+                }
+
+                // If content is empty, provide fallback
+                if (!aiMessage || aiMessage.trim() === '') {
+                    aiMessage = 'Welcome to Kallooppara Bhagavathi Temple! 🙏 How can I help you? Ask about darshan timings, poojas, or festivals.';
+                }
+
+                // Add AI response to history
+                conversationHistory.push({
+                    role: 'assistant',
+                    content: aiMessage
+                });
+
+                return aiMessage;
+            } catch (error) {
+                console.error('Chatbot error:', error);
+                return 'Sorry, there was a technical issue. 🙏 Please try again or use the quick buttons below.';
+            }
         }
 
-        function sendMessage() {
+        async function sendMessage() {
             const input = document.getElementById('chatbot-input');
             const message = input.value.trim();
 
@@ -2027,11 +2214,9 @@
 
             showTyping();
 
-            setTimeout(() => {
-                hideTyping();
-                const response = findResponse(message);
-                addBotMessage(response);
-            }, 800);
+            const response = await getAIResponse(message);
+            hideTyping();
+            addBotMessage(response);
         }
 
         function handleKeyPress(event) {
@@ -2040,49 +2225,37 @@
             }
         }
 
+        // Quick action responses (these bypass AI for faster response)
+        const quickResponses = {
+            live: `🔴 <b>Live Darshan:</b><br><br>Watch temple poojas and rituals live!<br><br>👉 <a href="javascript:void(0)" onclick="goToLive()" style="color:#ff6b35;">Click to watch Live</a>`,
+            gallery: `📷 <b>Gallery:</b><br><br>Beautiful photos and videos of the temple.<br><br>👉 <a href="gallery.html" style="color:#ff6b35;">Visit Gallery</a>`,
+            pooja: `🙏 <b>Main Poojas:</b><br><br>🪔 Udayasthamana Pooja - ₹5000/-<br>🌸 Archana - ₹50/-<br>💐 Pushpanjali - ₹100/-<br>🪔 Neyvilakku - ₹150/-<br><br>👉 <a href="pooja.html" style="color:#ff6b35;">More Details</a>`,
+            history: `📜 <b>Temple History:</b><br><br>Kallooppara Bhagavathi Temple is located on the banks of Manimala River in Pathanamthitta district. Bhadrakali Devi is the presiding deity here.<br><br>✨ <b>Specialty:</b> Rare Srichakra installation<br><br>👉 <a href="about-us.html" style="color:#ff6b35;">Read More</a>`,
+            timing: `🕐 <b>Darshan Timings:</b><br><br>🌅 <b>Morning:</b> 5:30 AM - 12:00 PM<br>🌆 <b>Evening:</b> 5:00 PM - 8:30 PM<br><br>⚠️ Last Darshan: 7:45 PM<br>📅 Open all days`,
+            contact: `📞 <b>Contact Us:</b><br><br>📍 Kallooppara Devi Temple<br>Kallooppara P.O<br>Thiruvalla – Mallappally Road<br>Pathanamthitta - 689583<br><br>👉 <a href="contact-us.html" style="color:#ff6b35;">Contact Page</a>`
+        };
+
         function quickAction(action) {
-            let response;
-            let userMessage;
+            const actionNames = {
+                live: '🔴 Live',
+                gallery: '📷 Gallery',
+                pooja: '🙏 Poojas',
+                history: '📜 History',
+                timing: '🕐 Timings',
+                contact: '📞 Contact'
+            };
 
-            switch (action) {
-                case 'live':
-                    userMessage = '🔴 ലൈവ്';
-                    response = responses.live;
-                    break;
-                case 'gallery':
-                    userMessage = '📷 ഗാലറി';
-                    response = responses.gallery;
-                    break;
-                case 'pooja':
-                    userMessage = '🙏 പൂജകൾ';
-                    response = responses.pooja;
-                    break;
-                case 'history':
-                    userMessage = '📜 ചരിത്രം';
-                    response = responses.history;
-                    break;
-                case 'timing':
-                    userMessage = '🕐 സമയം';
-                    response = responses.timing;
-                    break;
-                case 'contact':
-                    userMessage = '📞 ബന്ധപ്പെടുക';
-                    response = responses.contact;
-                    break;
-            }
-
-            addUserMessage(userMessage);
+            addUserMessage(actionNames[action]);
             showTyping();
 
             setTimeout(() => {
                 hideTyping();
-                addBotMessage(response);
-            }, 500);
+                addBotMessage(quickResponses[action]);
+            }, 400);
         }
 
         function goToLive() {
             toggleChatbot();
-            // Scroll to live section or trigger live check
             const liveBtn = document.getElementById('check-live-btn');
             if (liveBtn) {
                 liveBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
